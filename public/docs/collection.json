@@ -1,0 +1,1209 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "https:\/\/mystep.ma.ddev.site:8443"
+        }
+    ],
+    "info": {
+        "name": "MyStep API Documentation",
+        "_postman_id": "6f474115-663a-4b4b-a6a5-25e1251b2b2f",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "description": "This is the Auth controller",
+            "item": [
+                {
+                    "name": "Get a Bearer token",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"dmueller@example.com\",\"password\":\"wt\\\\q5R>;xPV<QwV#\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Register a new user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"mzrbjaqdyjjfqdedjlrpakocb\",\"last_name\":\"fgsshagsdfgmhni\",\"email\":\"egottlieb@example.com\",\"phone\":\"puzboxkujxiyxo\",\"password\":\"pg6zk?X;_c^S\",\"password_confirmation\":\"eius\",\"address\":\"iykzwqsmspxs\",\"referal_code\":\"a\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reset password\nSend an email to reset password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/password\/forgot",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/password\/forgot"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"kuhn.giuseppe@example.com\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reset password\nReset the password with the token",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/password\/reset",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/password\/reset"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"hettinger.lura@example.org\",\"password\":\"1N`$uZ\\\"=\",\"password_confirmation\":\"ex\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Resend OTP",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/otp\/resend",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/otp\/resend"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"klesch@example.org\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Verify OTP",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/otp\/verify",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/otp\/verify"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"yschmeler@example.com\",\"token\":\"fugit\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout\nRevoke the token",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Challenge",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/challenge",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/challenge"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/challenge\/:challenge_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/challenge\/:challenge_id",
+                            "variable": [
+                                {
+                                    "id": "challenge_id",
+                                    "key": "challenge_id",
+                                    "value": "3",
+                                    "description": "The ID of the challenge."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/problem+json"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"Challenge with id  3 not found\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "store new participant to the challenge.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/challenge\/add\/participant",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/challenge\/add\/participant"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "FAQ Catalog",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get all FAQ catalogs",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/faq",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/faq"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a specific FAQ catalog details",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/faq\/:faqCatalog_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/faq\/:faqCatalog_id",
+                            "variable": [
+                                {
+                                    "id": "faqCatalog_id",
+                                    "key": "faqCatalog_id",
+                                    "value": "8",
+                                    "description": "The ID of the faqCatalog."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/problem+json"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"FaqCatalog with id  8 not found\"}]}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Participation",
+            "description": "\nAll participation related endpoints",
+            "item": [
+                {
+                    "name": "Historique des participations",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/participation",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/participation"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/problem+json"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"errors\":[{\"status\":401,\"title\":\"Unauthenticated!\",\"detail\":\"Unauthenticated.\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "store new participant to the challenge.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/participation",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/participation"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"challenge_id\":\"id\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Mark participation as paid for test and run start action",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/participation\/mark-as-paid",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/participation\/mark-as-paid"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"challenge_user_id\":\"eaque\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Partner",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get all partners",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/partner",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/partner"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":2,\"name\":\"KFC\",\"slug\":\"kfc\",\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/01JAFNVS7FPCXADNTM7K3KSTMB.png\",\"location\":{\"lat\":31.6225224,\"lng\":-7.989825799999999,\"formatted_address\":\"Marrakech, Maroc\"},\"phone\":\"+2250744558999\",\"reward_type\":\"Miles\",\"reward_value\":\"1000\",\"qr_code\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/1729250583.svg\"},{\"id\":1,\"name\":\"Jean Kassi\",\"slug\":\"jean-kassi\",\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg\",\"location\":{\"lat\":31.791702,\"lng\":-7.092619999999999,\"formatted_address\":\"Maroc\"},\"phone\":\"+2250744558999\",\"reward_type\":\"Miles\",\"reward_value\":\"1000\",\"qr_code\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/1729243901.svg\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a specific partner details",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/partner\/:partner_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/partner\/:partner_id",
+                            "variable": [
+                                {
+                                    "id": "partner_id",
+                                    "key": "partner_id",
+                                    "value": "1",
+                                    "description": "The ID of the partner."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get all partner types",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/partner-type",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/partner-type"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"name\":\"Restaurant\",\"slug\":\"restaurant\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:20:32.000000Z\",\"updated_at\":\"2024-10-18T09:20:32.000000Z\"},{\"id\":2,\"name\":\"Boutique\",\"slug\":\"boutique\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:20:32.000000Z\",\"updated_at\":\"2024-10-18T09:20:32.000000Z\"},{\"id\":3,\"name\":\"Magasin\",\"slug\":\"magasin\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:20:32.000000Z\",\"updated_at\":\"2024-10-18T09:20:32.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a specific partner type",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/partner-type\/:partnerCategory_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/partner-type\/:partnerCategory_id",
+                            "variable": [
+                                {
+                                    "id": "partnerCategory_id",
+                                    "key": "partnerCategory_id",
+                                    "value": "1",
+                                    "description": "The ID of the partnerCategory."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"name\":\"Restaurant\",\"slug\":\"restaurant\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:20:32.000000Z\",\"updated_at\":\"2024-10-18T09:20:32.000000Z\",\"partners\":[{\"id\":1,\"name\":\"Jean Kassi\",\"slug\":\"jean-kassi\",\"location\":{\"lat\":31.791702,\"lng\":-7.092619999999999,\"formatted_address\":\"Maroc\"},\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg\",\"partner_category_id\":1,\"phone\":\"+2250744558999\",\"email\":null,\"website\":null,\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:31:41.000000Z\",\"updated_at\":\"2024-10-18T09:31:41.000000Z\",\"reward_id\":1,\"qr_code\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/1729243901.svg\"}]}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Parts",
+            "description": "",
+            "item": [
+                {
+                    "name": "Historique des parts journaliers",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/share",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/share"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/problem+json"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"errors\":[{\"status\":401,\"title\":\"Unauthenticated!\",\"detail\":\"Unauthenticated.\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Valider les parts journaliers",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/share",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/share"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"shares\":81}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Total des parts d'un utilisateur",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/share\/user\/history",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/share\/user\/history"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/problem+json"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"errors\":[{\"status\":401,\"title\":\"Unauthenticated!\",\"detail\":\"Unauthenticated.\"}]}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "description": "All user related endpoints",
+            "item": [
+                {
+                    "name": "Get the authenticated user details.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/problem+json"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"errors\":[{\"status\":401,\"title\":\"Unauthenticated!\",\"detail\":\"Unauthenticated.\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the authenticated user details.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/:user_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/:user_id",
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"nnadyduu\",\"last_name\":\"ygdgdpfaxvihzirjzuzors\",\"email\":\"zoey97@example.com\",\"phone\":\"cpfpoztlxaudvjrwwer\",\"password\":\"oI(eV{n\",\"password_confirmation\":\"velit\",\"address\":\"fysjxbjkuwdwvu\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Visit Our Partner",
+            "description": "",
+            "item": [
+                {
+                    "name": "Historique des visites chez nos partenaires",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/visit-our-partner",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/visit-our-partner"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/problem+json"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"errors\":[{\"status\":401,\"title\":\"Unauthenticated!\",\"detail\":\"Unauthenticated.\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Starting march towards the partner",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/visit-our-partner\/start-walking",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/visit-our-partner\/start-walking"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"partner_id\":3}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Mark the march towards the partner as done",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/visit-our-partner\/mark-as-walked",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/visit-our-partner\/mark-as-walked"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"challenge_id\":17,\"current_latitude\":104355.1584068,\"current_longitude\":3220}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Mark the march towards the partner as left",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/visit-our-partner\/left-walking\/:atOurPartner_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/visit-our-partner\/left-walking\/:atOurPartner_id",
+                            "variable": [
+                                {
+                                    "id": "atOurPartner_id",
+                                    "key": "atOurPartner_id",
+                                    "value": "1",
+                                    "description": "The ID of the atOurPartner."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Action de transfert des points de visite chez un partenaire dans le wallet",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/visit-our-partner\/transfert-rewards",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/visit-our-partner\/transfert-rewards"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Wallet",
+            "description": "This is the Wallet controller",
+            "item": [
+                {
+                    "name": "Handle the incoming request.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/wallets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/wallets"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/problem+json"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"errors\":[{\"status\":401,\"title\":\"Unauthenticated!\",\"detail\":\"Unauthenticated.\"}]}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
+    }
+}

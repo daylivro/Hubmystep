@@ -1,0 +1,169 @@
+name: User
+description: 'All user related endpoints'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/user
+    metadata:
+      groupName: User
+      groupDescription: 'All user related endpoints'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get the authenticated user details.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"errors":[{"status":401,"title":"Unauthenticated!","detail":"Unauthenticated."}]}'
+        headers:
+          content-type: application/problem+json
+          cache-control: 'no-cache, private'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer g3c6kbevaZ86a15fdVPED4h'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/user/{user_id}'
+    metadata:
+      groupName: User
+      groupDescription: 'All user related endpoints'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the authenticated user details.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      user_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: nnadyduu
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      last_name:
+        name: last_name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: ygdgdpfaxvihzirjzuzors
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: zoey97@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      phone:
+        name: phone
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: cpfpoztlxaudvjrwwer
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: 'oI(eV{n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The value and <code>password</code> must match.'
+        required: true
+        example: velit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      address:
+        name: address
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: fysjxbjkuwdwvu
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      location:
+        name: location
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      first_name: nnadyduu
+      last_name: ygdgdpfaxvihzirjzuzors
+      email: zoey97@example.com
+      phone: cpfpoztlxaudvjrwwer
+      password: 'oI(eV{n'
+      password_confirmation: velit
+      address: fysjxbjkuwdwvu
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer hfk3Dgcd68v61EaVZPe5b4a'
+    controller: null
+    method: null
+    route: null
+    custom: []

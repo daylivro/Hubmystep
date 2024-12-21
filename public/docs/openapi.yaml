@@ -1,0 +1,1269 @@
+openapi: 3.0.3
+info:
+  title: 'MyStep API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'https://mystep.ma.ddev.site:8443'
+paths:
+  /api/auth/login:
+    post:
+      summary: 'Get a Bearer token'
+      operationId: getABearerToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: dmueller@example.com
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: 'wt\q5R>;xPV<QwV#'
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/register:
+    post:
+      summary: 'Register a new user'
+      operationId: registerANewUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mzrbjaqdyjjfqdedjlrpakocb
+                last_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: fgsshagsdfgmhni
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: egottlieb@example.com
+                phone:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: puzboxkujxiyxo
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: 'pg6zk?X;_c^S'
+                password_confirmation:
+                  type: string
+                  description: 'The value and <code>password</code> must match.'
+                  example: eius
+                address:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: iykzwqsmspxs
+                location:
+                  type: object
+                  description: ''
+                  example: null
+                  properties: {  }
+                referal_code:
+                  type: string
+                  description: ''
+                  example: a
+              required:
+                - first_name
+                - last_name
+                - email
+                - phone
+                - password
+                - password_confirmation
+      security: []
+  /api/auth/password/forgot:
+    post:
+      summary: "Reset password\nSend an email to reset password"
+      operationId: resetPasswordSendAnEmailToResetPassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: kuhn.giuseppe@example.com
+              required:
+                - email
+      security: []
+  /api/auth/password/reset:
+    post:
+      summary: "Reset password\nReset the password with the token"
+      operationId: resetPasswordResetThePasswordWithTheToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: hettinger.lura@example.org
+                password:
+                  type: string
+                  description: 'The value and <code>email</code> must be different. Must be at least 8 characters.'
+                  example: '1N`$uZ"='
+                password_confirmation:
+                  type: string
+                  description: 'The value and <code>password</code> must match.'
+                  example: ex
+              required:
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/auth/otp/resend:
+    post:
+      summary: 'Resend OTP'
+      operationId: resendOTP
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: klesch@example.org
+              required:
+                - email
+      security: []
+  /api/auth/otp/verify:
+    post:
+      summary: 'Verify OTP'
+      operationId: verifyOTP
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: yschmeler@example.com
+                token:
+                  type: string
+                  description: ''
+                  example: fugit
+              required:
+                - email
+                - token
+      security: []
+  /api/auth/logout:
+    post:
+      summary: "Logout\nRevoke the token"
+      operationId: logoutRevokeTheToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+  /api/challenge:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Challenge
+      security: []
+  '/api/challenge/{challenge_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    -
+                      status: 404
+                      title: 'Record not found!'
+                      detail: 'Challenge with id  3 not found'
+                properties:
+                  errors:
+                    type: array
+                    example:
+                      -
+                        status: 404
+                        title: 'Record not found!'
+                        detail: 'Challenge with id  3 not found'
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: integer
+                          example: 404
+                        title:
+                          type: string
+                          example: 'Record not found!'
+                        detail:
+                          type: string
+                          example: 'Challenge with id  3 not found'
+      tags:
+        - Challenge
+    parameters:
+      -
+        in: path
+        name: challenge_id
+        description: 'The ID of the challenge.'
+        example: 3
+        required: true
+        schema:
+          type: integer
+  /api/challenge/add/participant:
+    post:
+      summary: 'store new participant to the challenge.'
+      operationId: storeNewParticipantToTheChallenge
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Challenge
+  /api/faq:
+    get:
+      summary: 'Get all FAQ catalogs'
+      operationId: getAllFAQCatalogs
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - 'FAQ Catalog'
+  '/api/faq/{faqCatalog_id}':
+    get:
+      summary: 'Get a specific FAQ catalog details'
+      operationId: getASpecificFAQCatalogDetails
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    -
+                      status: 404
+                      title: 'Record not found!'
+                      detail: 'FaqCatalog with id  8 not found'
+                properties:
+                  errors:
+                    type: array
+                    example:
+                      -
+                        status: 404
+                        title: 'Record not found!'
+                        detail: 'FaqCatalog with id  8 not found'
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: integer
+                          example: 404
+                        title:
+                          type: string
+                          example: 'Record not found!'
+                        detail:
+                          type: string
+                          example: 'FaqCatalog with id  8 not found'
+      tags:
+        - 'FAQ Catalog'
+    parameters:
+      -
+        in: path
+        name: faqCatalog_id
+        description: 'The ID of the faqCatalog.'
+        example: 8
+        required: true
+        schema:
+          type: integer
+  /api/participation:
+    get:
+      summary: 'Historique des participations'
+      operationId: historiqueDesParticipations
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    -
+                      status: 401
+                      title: Unauthenticated!
+                      detail: Unauthenticated.
+                properties:
+                  errors:
+                    type: array
+                    example:
+                      -
+                        status: 401
+                        title: Unauthenticated!
+                        detail: Unauthenticated.
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: integer
+                          example: 401
+                        title:
+                          type: string
+                          example: Unauthenticated!
+                        detail:
+                          type: string
+                          example: Unauthenticated.
+      tags:
+        - Participation
+    post:
+      summary: 'store new participant to the challenge.'
+      operationId: storeNewParticipantToTheChallenge
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Participation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                challenge_id:
+                  type: string
+                  description: ''
+                  example: id
+              required:
+                - challenge_id
+  /api/participation/mark-as-paid:
+    post:
+      summary: 'Mark participation as paid for test and run start action'
+      operationId: markParticipationAsPaidForTestAndRunStartAction
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Participation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                challenge_user_id:
+                  type: string
+                  description: ''
+                  example: eaque
+              required:
+                - challenge_user_id
+  /api/partner:
+    get:
+      summary: 'Get all partners'
+      operationId: getAllPartners
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 2
+                      name: KFC
+                      slug: kfc
+                      image: 'https://mystep.ma.ddev.site:8443/storage/01JAFNVS7FPCXADNTM7K3KSTMB.png'
+                      location:
+                        lat: 31.6225224
+                        lng: -7.9898258
+                        formatted_address: 'Marrakech, Maroc'
+                      phone: '+2250744558999'
+                      reward_type: Miles
+                      reward_value: '1000'
+                      qr_code: 'https://mystep.ma.ddev.site:8443/storage/1729250583.svg'
+                    -
+                      id: 1
+                      name: 'Jean Kassi'
+                      slug: jean-kassi
+                      image: 'https://mystep.ma.ddev.site:8443/storage/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg'
+                      location:
+                        lat: 31.791702
+                        lng: -7.09262
+                        formatted_address: Maroc
+                      phone: '+2250744558999'
+                      reward_type: Miles
+                      reward_value: '1000'
+                      qr_code: 'https://mystep.ma.ddev.site:8443/storage/1729243901.svg'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        name: KFC
+                        slug: kfc
+                        image: 'https://mystep.ma.ddev.site:8443/storage/01JAFNVS7FPCXADNTM7K3KSTMB.png'
+                        location:
+                          lat: 31.6225224
+                          lng: -7.9898258
+                          formatted_address: 'Marrakech, Maroc'
+                        phone: '+2250744558999'
+                        reward_type: Miles
+                        reward_value: '1000'
+                        qr_code: 'https://mystep.ma.ddev.site:8443/storage/1729250583.svg'
+                      -
+                        id: 1
+                        name: 'Jean Kassi'
+                        slug: jean-kassi
+                        image: 'https://mystep.ma.ddev.site:8443/storage/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg'
+                        location:
+                          lat: 31.791702
+                          lng: -7.09262
+                          formatted_address: Maroc
+                        phone: '+2250744558999'
+                        reward_type: Miles
+                        reward_value: '1000'
+                        qr_code: 'https://mystep.ma.ddev.site:8443/storage/1729243901.svg'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        name:
+                          type: string
+                          example: KFC
+                        slug:
+                          type: string
+                          example: kfc
+                        image:
+                          type: string
+                          example: 'https://mystep.ma.ddev.site:8443/storage/01JAFNVS7FPCXADNTM7K3KSTMB.png'
+                        location:
+                          type: object
+                          properties:
+                            lat:
+                              type: number
+                              example: 31.6225224
+                            lng:
+                              type: number
+                              example: -7.9898258
+                            formatted_address:
+                              type: string
+                              example: 'Marrakech, Maroc'
+                        phone:
+                          type: string
+                          example: '+2250744558999'
+                        reward_type:
+                          type: string
+                          example: Miles
+                        reward_value:
+                          type: string
+                          example: '1000'
+                        qr_code:
+                          type: string
+                          example: 'https://mystep.ma.ddev.site:8443/storage/1729250583.svg'
+      tags:
+        - Partner
+      security: []
+  '/api/partner/{partner_id}':
+    post:
+      summary: 'Get a specific partner details'
+      operationId: getASpecificPartnerDetails
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Partner
+      security: []
+    parameters:
+      -
+        in: path
+        name: partner_id
+        description: 'The ID of the partner.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/partner-type:
+    get:
+      summary: 'Get all partner types'
+      operationId: getAllPartnerTypes
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: Restaurant
+                      slug: restaurant
+                      description: null
+                      image: 'https://mystep.ma.ddev.site:8443/storage'
+                      desabled_at: null
+                      deleted_at: null
+                      created_at: '2024-10-18T09:20:32.000000Z'
+                      updated_at: '2024-10-18T09:20:32.000000Z'
+                    -
+                      id: 2
+                      name: Boutique
+                      slug: boutique
+                      description: null
+                      image: 'https://mystep.ma.ddev.site:8443/storage'
+                      desabled_at: null
+                      deleted_at: null
+                      created_at: '2024-10-18T09:20:32.000000Z'
+                      updated_at: '2024-10-18T09:20:32.000000Z'
+                    -
+                      id: 3
+                      name: Magasin
+                      slug: magasin
+                      description: null
+                      image: 'https://mystep.ma.ddev.site:8443/storage'
+                      desabled_at: null
+                      deleted_at: null
+                      created_at: '2024-10-18T09:20:32.000000Z'
+                      updated_at: '2024-10-18T09:20:32.000000Z'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Restaurant
+                        slug: restaurant
+                        description: null
+                        image: 'https://mystep.ma.ddev.site:8443/storage'
+                        desabled_at: null
+                        deleted_at: null
+                        created_at: '2024-10-18T09:20:32.000000Z'
+                        updated_at: '2024-10-18T09:20:32.000000Z'
+                      -
+                        id: 2
+                        name: Boutique
+                        slug: boutique
+                        description: null
+                        image: 'https://mystep.ma.ddev.site:8443/storage'
+                        desabled_at: null
+                        deleted_at: null
+                        created_at: '2024-10-18T09:20:32.000000Z'
+                        updated_at: '2024-10-18T09:20:32.000000Z'
+                      -
+                        id: 3
+                        name: Magasin
+                        slug: magasin
+                        description: null
+                        image: 'https://mystep.ma.ddev.site:8443/storage'
+                        desabled_at: null
+                        deleted_at: null
+                        created_at: '2024-10-18T09:20:32.000000Z'
+                        updated_at: '2024-10-18T09:20:32.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Restaurant
+                        slug:
+                          type: string
+                          example: restaurant
+                        description:
+                          type: string
+                          example: null
+                        image:
+                          type: string
+                          example: 'https://mystep.ma.ddev.site:8443/storage'
+                        desabled_at:
+                          type: string
+                          example: null
+                        deleted_at:
+                          type: string
+                          example: null
+                        created_at:
+                          type: string
+                          example: '2024-10-18T09:20:32.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-10-18T09:20:32.000000Z'
+      tags:
+        - Partner
+      security: []
+  '/api/partner-type/{partnerCategory_id}':
+    get:
+      summary: 'Get a specific partner type'
+      operationId: getASpecificPartnerType
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: Restaurant
+                    slug: restaurant
+                    description: null
+                    image: 'https://mystep.ma.ddev.site:8443/storage'
+                    desabled_at: null
+                    deleted_at: null
+                    created_at: '2024-10-18T09:20:32.000000Z'
+                    updated_at: '2024-10-18T09:20:32.000000Z'
+                    partners:
+                      -
+                        id: 1
+                        name: 'Jean Kassi'
+                        slug: jean-kassi
+                        location:
+                          lat: 31.791702
+                          lng: -7.09262
+                          formatted_address: Maroc
+                        image: 'https://mystep.ma.ddev.site:8443/storage/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg'
+                        partner_category_id: 1
+                        phone: '+2250744558999'
+                        email: null
+                        website: null
+                        desabled_at: null
+                        deleted_at: null
+                        created_at: '2024-10-18T09:31:41.000000Z'
+                        updated_at: '2024-10-18T09:31:41.000000Z'
+                        reward_id: 1
+                        qr_code: 'https://mystep.ma.ddev.site:8443/storage/1729243901.svg'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: Restaurant
+                      slug:
+                        type: string
+                        example: restaurant
+                      description:
+                        type: string
+                        example: null
+                      image:
+                        type: string
+                        example: 'https://mystep.ma.ddev.site:8443/storage'
+                      desabled_at:
+                        type: string
+                        example: null
+                      deleted_at:
+                        type: string
+                        example: null
+                      created_at:
+                        type: string
+                        example: '2024-10-18T09:20:32.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-10-18T09:20:32.000000Z'
+                      partners:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            name: 'Jean Kassi'
+                            slug: jean-kassi
+                            location:
+                              lat: 31.791702
+                              lng: -7.09262
+                              formatted_address: Maroc
+                            image: 'https://mystep.ma.ddev.site:8443/storage/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg'
+                            partner_category_id: 1
+                            phone: '+2250744558999'
+                            email: null
+                            website: null
+                            desabled_at: null
+                            deleted_at: null
+                            created_at: '2024-10-18T09:31:41.000000Z'
+                            updated_at: '2024-10-18T09:31:41.000000Z'
+                            reward_id: 1
+                            qr_code: 'https://mystep.ma.ddev.site:8443/storage/1729243901.svg'
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: 'Jean Kassi'
+                            slug:
+                              type: string
+                              example: jean-kassi
+                            location:
+                              type: object
+                              properties:
+                                lat:
+                                  type: number
+                                  example: 31.791702
+                                lng:
+                                  type: number
+                                  example: -7.09262
+                                formatted_address:
+                                  type: string
+                                  example: Maroc
+                            image:
+                              type: string
+                              example: 'https://mystep.ma.ddev.site:8443/storage/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg'
+                            partner_category_id:
+                              type: integer
+                              example: 1
+                            phone:
+                              type: string
+                              example: '+2250744558999'
+                            email:
+                              type: string
+                              example: null
+                            website:
+                              type: string
+                              example: null
+                            desabled_at:
+                              type: string
+                              example: null
+                            deleted_at:
+                              type: string
+                              example: null
+                            created_at:
+                              type: string
+                              example: '2024-10-18T09:31:41.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2024-10-18T09:31:41.000000Z'
+                            reward_id:
+                              type: integer
+                              example: 1
+                            qr_code:
+                              type: string
+                              example: 'https://mystep.ma.ddev.site:8443/storage/1729243901.svg'
+      tags:
+        - Partner
+      security: []
+    parameters:
+      -
+        in: path
+        name: partnerCategory_id
+        description: 'The ID of the partnerCategory.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/share:
+    get:
+      summary: 'Historique des parts journaliers'
+      operationId: historiqueDesPartsJournaliers
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    -
+                      status: 401
+                      title: Unauthenticated!
+                      detail: Unauthenticated.
+                properties:
+                  errors:
+                    type: array
+                    example:
+                      -
+                        status: 401
+                        title: Unauthenticated!
+                        detail: Unauthenticated.
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: integer
+                          example: 401
+                        title:
+                          type: string
+                          example: Unauthenticated!
+                        detail:
+                          type: string
+                          example: Unauthenticated.
+      tags:
+        - Parts
+    post:
+      summary: 'Valider les parts journaliers'
+      operationId: validerLesPartsJournaliers
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Parts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shares:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 81
+              required:
+                - shares
+  /api/share/user/history:
+    get:
+      summary: "Total des parts d'un utilisateur"
+      operationId: totalDesPartsDunUtilisateur
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    -
+                      status: 401
+                      title: Unauthenticated!
+                      detail: Unauthenticated.
+                properties:
+                  errors:
+                    type: array
+                    example:
+                      -
+                        status: 401
+                        title: Unauthenticated!
+                        detail: Unauthenticated.
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: integer
+                          example: 401
+                        title:
+                          type: string
+                          example: Unauthenticated!
+                        detail:
+                          type: string
+                          example: Unauthenticated.
+      tags:
+        - Parts
+  /api/user:
+    get:
+      summary: 'Get the authenticated user details.'
+      operationId: getTheAuthenticatedUserDetails
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    -
+                      status: 401
+                      title: Unauthenticated!
+                      detail: Unauthenticated.
+                properties:
+                  errors:
+                    type: array
+                    example:
+                      -
+                        status: 401
+                        title: Unauthenticated!
+                        detail: Unauthenticated.
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: integer
+                          example: 401
+                        title:
+                          type: string
+                          example: Unauthenticated!
+                        detail:
+                          type: string
+                          example: Unauthenticated.
+      tags:
+        - User
+  '/api/user/{user_id}':
+    put:
+      summary: 'Update the authenticated user details.'
+      operationId: updateTheAuthenticatedUserDetails
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: nnadyduu
+                last_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ygdgdpfaxvihzirjzuzors
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: zoey97@example.com
+                phone:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: cpfpoztlxaudvjrwwer
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: 'oI(eV{n'
+                password_confirmation:
+                  type: string
+                  description: 'The value and <code>password</code> must match.'
+                  example: velit
+                address:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: fysjxbjkuwdwvu
+                location:
+                  type: object
+                  description: ''
+                  example: null
+                  properties: {  }
+              required:
+                - first_name
+                - last_name
+                - email
+                - phone
+                - password
+                - password_confirmation
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/visit-our-partner:
+    get:
+      summary: 'Historique des visites chez nos partenaires'
+      operationId: historiqueDesVisitesChezNosPartenaires
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    -
+                      status: 401
+                      title: Unauthenticated!
+                      detail: Unauthenticated.
+                properties:
+                  errors:
+                    type: array
+                    example:
+                      -
+                        status: 401
+                        title: Unauthenticated!
+                        detail: Unauthenticated.
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: integer
+                          example: 401
+                        title:
+                          type: string
+                          example: Unauthenticated!
+                        detail:
+                          type: string
+                          example: Unauthenticated.
+      tags:
+        - 'Visit Our Partner'
+  /api/visit-our-partner/start-walking:
+    post:
+      summary: 'Starting march towards the partner'
+      operationId: startingMarchTowardsThePartner
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Visit Our Partner'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                partner_id:
+                  type: integer
+                  description: ''
+                  example: 3
+              required:
+                - partner_id
+  /api/visit-our-partner/mark-as-walked:
+    post:
+      summary: 'Mark the march towards the partner as done'
+      operationId: markTheMarchTowardsThePartnerAsDone
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Visit Our Partner'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                challenge_id:
+                  type: integer
+                  description: ''
+                  example: 17
+                current_latitude:
+                  type: number
+                  description: ''
+                  example: 104355.1584068
+                current_longitude:
+                  type: number
+                  description: ''
+                  example: 3220.0
+              required:
+                - challenge_id
+                - current_latitude
+                - current_longitude
+  '/api/visit-our-partner/left-walking/{atOurPartner_id}':
+    post:
+      summary: 'Mark the march towards the partner as left'
+      operationId: markTheMarchTowardsThePartnerAsLeft
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Visit Our Partner'
+    parameters:
+      -
+        in: path
+        name: atOurPartner_id
+        description: 'The ID of the atOurPartner.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/visit-our-partner/transfert-rewards:
+    post:
+      summary: 'Action de transfert des points de visite chez un partenaire dans le wallet'
+      operationId: actionDeTransfertDesPointsDeVisiteChezUnPartenaireDansLeWallet
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Visit Our Partner'
+  /api/wallets:
+    get:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    -
+                      status: 401
+                      title: Unauthenticated!
+                      detail: Unauthenticated.
+                properties:
+                  errors:
+                    type: array
+                    example:
+                      -
+                        status: 401
+                        title: Unauthenticated!
+                        detail: Unauthenticated.
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: integer
+                          example: 401
+                        title:
+                          type: string
+                          example: Unauthenticated!
+                        detail:
+                          type: string
+                          example: Unauthenticated.
+      tags:
+        - Wallet
+tags:
+  -
+    name: Auth
+    description: 'This is the Auth controller'
+  -
+    name: Challenge
+    description: ''
+  -
+    name: 'FAQ Catalog'
+    description: ''
+  -
+    name: Participation
+    description: "\nAll participation related endpoints"
+  -
+    name: Partner
+    description: ''
+  -
+    name: Parts
+    description: ''
+  -
+    name: User
+    description: 'All user related endpoints'
+  -
+    name: 'Visit Our Partner'
+    description: ''
+  -
+    name: Wallet
+    description: 'This is the Wallet controller'
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

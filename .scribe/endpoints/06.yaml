@@ -1,0 +1,142 @@
+name: Participation
+description: |-
+
+  All participation related endpoints
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/participation
+    metadata:
+      groupName: Participation
+      groupDescription: |-
+
+        All participation related endpoints
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Historique des participations'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"errors":[{"status":401,"title":"Unauthenticated!","detail":"Unauthenticated."}]}'
+        headers:
+          content-type: application/problem+json
+          cache-control: 'no-cache, private'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ZfPagEbv5h38ke4d6caD61V'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/participation
+    metadata:
+      groupName: Participation
+      groupDescription: |-
+
+        All participation related endpoints
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'store new participant to the challenge.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      challenge_id:
+        name: challenge_id
+        description: ''
+        required: true
+        example: id
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      challenge_id: id
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6cka83vbVfD1dgE5h4P6aZe'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/participation/mark-as-paid
+    metadata:
+      groupName: Participation
+      groupDescription: |-
+
+        All participation related endpoints
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mark participation as paid for test and run start action'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      challenge_user_id:
+        name: challenge_user_id
+        description: ''
+        required: true
+        example: eaque
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      challenge_user_id: eaque
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer bED4fkPc1hvaZdVg865e6a3'
+    controller: null
+    method: null
+    route: null
+    custom: []
