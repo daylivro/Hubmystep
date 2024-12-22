@@ -26,23 +26,25 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: dmueller@example.com
+        example: simonis.cierra@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: 'wt\q5R>;xPV<QwV#'
+        example: '<+#~%eD3U@7l_'
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanBodyParameters:
-      email: dmueller@example.com
-      password: 'wt\q5R>;xPV<QwV#'
+      email: simonis.cierra@example.net
+      password: '<+#~%eD3U@7l_'
     fileParameters: []
     responses: []
     responseFields: []
@@ -76,64 +78,71 @@ endpoints:
         name: first_name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: mzrbjaqdyjjfqdedjlrpakocb
+        example: axyzwaheulott
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       last_name:
         name: last_name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: fgsshagsdfgmhni
+        example: dfylhjekabceybbfeheq
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: egottlieb@example.com
+        example: abelardo.zulauf@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       phone:
         name: phone
         description: 'Must not be greater than 255 characters.'
-        required: true
-        example: puzboxkujxiyxo
+        required: false
+        example: vuzeovjxgaijravb
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: true
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: 'pg6zk?X;_c^S'
+        example: zf|8XjL\(LJ5(|O
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'The value and <code>password</code> must match.'
         required: true
-        example: eius
+        example: unde
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       address:
         name: address
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: iykzwqsmspxs
+        example: cglzcsjqcyvv
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: true
         custom: []
       location:
         name: location
@@ -143,25 +152,27 @@ endpoints:
         type: object
         enumValues: []
         exampleWasSpecified: false
+        nullable: true
         custom: []
       referal_code:
         name: referal_code
         description: ''
         required: false
-        example: a
+        example: atque
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: true
         custom: []
     cleanBodyParameters:
-      first_name: mzrbjaqdyjjfqdedjlrpakocb
-      last_name: fgsshagsdfgmhni
-      email: egottlieb@example.com
-      phone: puzboxkujxiyxo
-      password: 'pg6zk?X;_c^S'
-      password_confirmation: eius
-      address: iykzwqsmspxs
-      referal_code: a
+      first_name: axyzwaheulott
+      last_name: dfylhjekabceybbfeheq
+      email: abelardo.zulauf@example.com
+      phone: vuzeovjxgaijravb
+      password: zf|8XjL\(LJ5(|O
+      password_confirmation: unde
+      address: cglzcsjqcyvv
+      referal_code: atque
     fileParameters: []
     responses: []
     responseFields: []
@@ -197,75 +208,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: kuhn.giuseppe@example.com
+        example: taya.mills@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanBodyParameters:
-      email: kuhn.giuseppe@example.com
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/auth/password/reset
-    metadata:
-      groupName: Auth
-      groupDescription: 'This is the Auth controller'
-      subgroup: ''
-      subgroupDescription: ''
-      title: |-
-        Reset password
-        Reset the password with the token
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      email:
-        name: email
-        description: 'Must be a valid email address. Must not be greater than 255 characters.'
-        required: true
-        example: hettinger.lura@example.org
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      password:
-        name: password
-        description: 'The value and <code>email</code> must be different. Must be at least 8 characters.'
-        required: true
-        example: '1N`$uZ"='
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      password_confirmation:
-        name: password_confirmation
-        description: 'The value and <code>password</code> must match.'
-        required: true
-        example: ex
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      email: hettinger.lura@example.org
-      password: '1N`$uZ"='
-      password_confirmation: ex
+      email: taya.mills@example.org
     fileParameters: []
     responses: []
     responseFields: []
@@ -299,13 +249,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: klesch@example.org
+        example: pagac.obie@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanBodyParameters:
-      email: klesch@example.org
+      email: pagac.obie@example.org
     fileParameters: []
     responses: []
     responseFields: []
@@ -339,23 +290,25 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: yschmeler@example.com
+        example: eloy.wolff@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       token:
         name: token
         description: ''
         required: true
-        example: fugit
+        example: assumenda
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanBodyParameters:
-      email: yschmeler@example.com
-      token: fugit
+      email: eloy.wolff@example.org
+      token: assumenda
     fileParameters: []
     responses: []
     responseFields: []
@@ -395,7 +348,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer c3665DdEea1vkafbVhP8gZ4'
+      - 'Bearer cZfk15havaV3E8P6D46bged'
     controller: null
     method: null
     route: null

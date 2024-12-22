@@ -3,7 +3,7 @@
 
 
 <aside>
-    <strong>Base URL</strong>: <code>https://mystep.ma.ddev.site:8443</code>
+    <strong>Base URL</strong>: <code>https://mystep.ma.ddev.site:33001</code>
 </aside>
 
 This documentation aims to provide all the information you need to work with our API.

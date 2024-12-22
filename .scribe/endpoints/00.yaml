@@ -39,7 +39,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer g3c6kbevaZ86a15fdVPED4h'
+      - 'Bearer cE3VZD5d64aP68ahekgbv1f'
     controller: null
     method: null
     route: null
@@ -70,6 +70,7 @@ endpoints:
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -80,64 +81,51 @@ endpoints:
         name: first_name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: nnadyduu
+        example: hkpelnrlmwqstynvbeddflne
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       last_name:
         name: last_name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: ygdgdpfaxvihzirjzuzors
+        example: ldt
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: zoey97@example.com
+        example: nickolas93@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       phone:
         name: phone
         description: 'Must not be greater than 255 characters.'
-        required: true
-        example: cpfpoztlxaudvjrwwer
+        required: false
+        example: rv
         type: string
         enumValues: []
         exampleWasSpecified: false
-        custom: []
-      password:
-        name: password
-        description: 'Must be at least 8 characters.'
-        required: true
-        example: 'oI(eV{n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      password_confirmation:
-        name: password_confirmation
-        description: 'The value and <code>password</code> must match.'
-        required: true
-        example: velit
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
+        nullable: true
         custom: []
       address:
         name: address
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: fysjxbjkuwdwvu
+        example: rhmuezfuslvzaqwgafmnpcr
         type: string
         enumValues: []
         exampleWasSpecified: false
+        nullable: true
         custom: []
       location:
         name: location
@@ -147,22 +135,21 @@ endpoints:
         type: object
         enumValues: []
         exampleWasSpecified: false
+        nullable: true
         custom: []
     cleanBodyParameters:
-      first_name: nnadyduu
-      last_name: ygdgdpfaxvihzirjzuzors
-      email: zoey97@example.com
-      phone: cpfpoztlxaudvjrwwer
-      password: 'oI(eV{n'
-      password_confirmation: velit
-      address: fysjxbjkuwdwvu
+      first_name: hkpelnrlmwqstynvbeddflne
+      last_name: ldt
+      email: nickolas93@example.com
+      phone: rv
+      address: rhmuezfuslvzaqwgafmnpcr
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer hfk3Dgcd68v61EaVZPe5b4a'
+      - 'Bearer bvh3V56Egf61PeZa48dcDka'
     controller: null
     method: null
     route: null

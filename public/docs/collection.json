@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "https:\/\/mystep.ma.ddev.site:8443"
+            "value": "https:\/\/mystep.ma.ddev.site:33001"
         }
     ],
     "info": {
         "name": "MyStep API Documentation",
-        "_postman_id": "6f474115-663a-4b4b-a6a5-25e1251b2b2f",
+        "_postman_id": "ed59d166-48a9-478b-9731-b0dd6cc0de36",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"dmueller@example.com\",\"password\":\"wt\\\\q5R>;xPV<QwV#\"}"
+                            "raw": "{\"email\":\"simonis.cierra@example.net\",\"password\":\"<+#~%eD3U@7l_\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"mzrbjaqdyjjfqdedjlrpakocb\",\"last_name\":\"fgsshagsdfgmhni\",\"email\":\"egottlieb@example.com\",\"phone\":\"puzboxkujxiyxo\",\"password\":\"pg6zk?X;_c^S\",\"password_confirmation\":\"eius\",\"address\":\"iykzwqsmspxs\",\"referal_code\":\"a\"}"
+                            "raw": "{\"first_name\":\"axyzwaheulott\",\"last_name\":\"dfylhjekabceybbfeheq\",\"email\":\"abelardo.zulauf@example.com\",\"phone\":\"vuzeovjxgaijravb\",\"password\":\"zf|8XjL\\\\(LJ5(|O\",\"password_confirmation\":\"unde\",\"address\":\"cglzcsjqcyvv\",\"referal_code\":\"atque\"}"
                         },
                         "description": "",
                         "auth": {
@@ -103,38 +103,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"kuhn.giuseppe@example.com\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Reset password\nReset the password with the token",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/auth\/password\/reset",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/auth\/password\/reset"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"hettinger.lura@example.org\",\"password\":\"1N`$uZ\\\"=\",\"password_confirmation\":\"ex\"}"
+                            "raw": "{\"email\":\"taya.mills@example.org\"}"
                         },
                         "description": "",
                         "auth": {
@@ -165,7 +134,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"klesch@example.org\"}"
+                            "raw": "{\"email\":\"pagac.obie@example.org\"}"
                         },
                         "description": "",
                         "auth": {
@@ -196,7 +165,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"yschmeler@example.com\",\"token\":\"fugit\"}"
+                            "raw": "{\"email\":\"eloy.wolff@example.org\",\"token\":\"assumenda\"}"
                         },
                         "description": "",
                         "auth": {
@@ -296,7 +265,7 @@
                                 {
                                     "id": "challenge_id",
                                     "key": "challenge_id",
-                                    "value": "3",
+                                    "value": "10",
                                     "description": "The ID of the challenge."
                                 }
                             ]
@@ -332,7 +301,7 @@
                                 }
                             ],
                             "code": 404,
-                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"Challenge with id  3 not found\"}]}",
+                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"Challenge with id  10 not found\"}]}",
                             "name": ""
                         }
                     ]
@@ -425,7 +394,7 @@
                                 {
                                     "id": "faqCatalog_id",
                                     "key": "faqCatalog_id",
-                                    "value": "8",
+                                    "value": "5",
                                     "description": "The ID of the faqCatalog."
                                 }
                             ]
@@ -461,7 +430,7 @@
                                 }
                             ],
                             "code": 404,
-                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"FaqCatalog with id  8 not found\"}]}",
+                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"FaqCatalog with id  5 not found\"}]}",
                             "name": ""
                         }
                     ]
@@ -539,7 +508,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"challenge_id\":\"id\"}"
+                            "raw": "{\"challenge_id\":\"numquam\"}"
                         },
                         "description": ""
                     },
@@ -567,7 +536,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"challenge_user_id\":\"eaque\"}"
+                            "raw": "{\"challenge_user_id\":\"quod\"}"
                         },
                         "description": ""
                     },
@@ -622,7 +591,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":2,\"name\":\"KFC\",\"slug\":\"kfc\",\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/01JAFNVS7FPCXADNTM7K3KSTMB.png\",\"location\":{\"lat\":31.6225224,\"lng\":-7.989825799999999,\"formatted_address\":\"Marrakech, Maroc\"},\"phone\":\"+2250744558999\",\"reward_type\":\"Miles\",\"reward_value\":\"1000\",\"qr_code\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/1729250583.svg\"},{\"id\":1,\"name\":\"Jean Kassi\",\"slug\":\"jean-kassi\",\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg\",\"location\":{\"lat\":31.791702,\"lng\":-7.092619999999999,\"formatted_address\":\"Maroc\"},\"phone\":\"+2250744558999\",\"reward_type\":\"Miles\",\"reward_value\":\"1000\",\"qr_code\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/1729243901.svg\"}]}",
+                            "body": "{\"data\":[]}",
                             "name": ""
                         }
                     ]
@@ -639,7 +608,7 @@
                                 {
                                     "id": "partner_id",
                                     "key": "partner_id",
-                                    "value": "1",
+                                    "value": "18",
                                     "description": "The ID of the partner."
                                 }
                             ]
@@ -706,7 +675,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":1,\"name\":\"Restaurant\",\"slug\":\"restaurant\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:20:32.000000Z\",\"updated_at\":\"2024-10-18T09:20:32.000000Z\"},{\"id\":2,\"name\":\"Boutique\",\"slug\":\"boutique\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:20:32.000000Z\",\"updated_at\":\"2024-10-18T09:20:32.000000Z\"},{\"id\":3,\"name\":\"Magasin\",\"slug\":\"magasin\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:20:32.000000Z\",\"updated_at\":\"2024-10-18T09:20:32.000000Z\"}]}",
+                            "body": "{\"data\":[{\"id\":1,\"name\":\"Restaurant\",\"slug\":\"restaurant\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:33001\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-12-22T08:59:12.000000Z\",\"updated_at\":\"2024-12-22T08:59:12.000000Z\"},{\"id\":2,\"name\":\"Boutique\",\"slug\":\"boutique\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:33001\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-12-22T08:59:12.000000Z\",\"updated_at\":\"2024-12-22T08:59:12.000000Z\"},{\"id\":3,\"name\":\"Magasin\",\"slug\":\"magasin\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:33001\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-12-22T08:59:12.000000Z\",\"updated_at\":\"2024-12-22T08:59:12.000000Z\"}]}",
                             "name": ""
                         }
                     ]
@@ -762,7 +731,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":1,\"name\":\"Restaurant\",\"slug\":\"restaurant\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:20:32.000000Z\",\"updated_at\":\"2024-10-18T09:20:32.000000Z\",\"partners\":[{\"id\":1,\"name\":\"Jean Kassi\",\"slug\":\"jean-kassi\",\"location\":{\"lat\":31.791702,\"lng\":-7.092619999999999,\"formatted_address\":\"Maroc\"},\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg\",\"partner_category_id\":1,\"phone\":\"+2250744558999\",\"email\":null,\"website\":null,\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-10-18T09:31:41.000000Z\",\"updated_at\":\"2024-10-18T09:31:41.000000Z\",\"reward_id\":1,\"qr_code\":\"https:\\\/\\\/mystep.ma.ddev.site:8443\\\/storage\\\/1729243901.svg\"}]}}",
+                            "body": "{\"data\":{\"id\":1,\"name\":\"Restaurant\",\"slug\":\"restaurant\",\"description\":null,\"image\":\"https:\\\/\\\/mystep.ma.ddev.site:33001\\\/storage\",\"desabled_at\":null,\"deleted_at\":null,\"created_at\":\"2024-12-22T08:59:12.000000Z\",\"updated_at\":\"2024-12-22T08:59:12.000000Z\",\"partners\":[]}}",
                             "name": ""
                         }
                     ]
@@ -840,7 +809,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"shares\":81}"
+                            "raw": "{\"shares\":40}"
                         },
                         "description": ""
                     },
@@ -972,7 +941,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"nnadyduu\",\"last_name\":\"ygdgdpfaxvihzirjzuzors\",\"email\":\"zoey97@example.com\",\"phone\":\"cpfpoztlxaudvjrwwer\",\"password\":\"oI(eV{n\",\"password_confirmation\":\"velit\",\"address\":\"fysjxbjkuwdwvu\"}"
+                            "raw": "{\"first_name\":\"hkpelnrlmwqstynvbeddflne\",\"last_name\":\"ldt\",\"email\":\"nickolas93@example.com\",\"phone\":\"rv\",\"address\":\"rhmuezfuslvzaqwgafmnpcr\"}"
                         },
                         "description": ""
                     },
@@ -1051,7 +1020,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"partner_id\":3}"
+                            "raw": "{\"partner_id\":8,\"minimum_steps\":42,\"current_steps_in_beginning\":34}"
                         },
                         "description": ""
                     },
@@ -1079,7 +1048,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"challenge_id\":17,\"current_latitude\":104355.1584068,\"current_longitude\":3220}"
+                            "raw": "{\"challenge_id\":17,\"current_latitude\":754.526,\"current_longitude\":13707127.3354,\"current_steps_in_end\":40}"
                         },
                         "description": ""
                     },
@@ -1138,7 +1107,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"challenge_id\":\"eveniet\"}"
+                        },
                         "description": ""
                     },
                     "response": []

@@ -39,7 +39,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer D618af5k3gdv4ZPb6VEheca'
+      - 'Bearer vDP186ek453VEbcfZh6dgaa'
     controller: null
     method: null
     route: null
@@ -70,20 +70,43 @@ endpoints:
         name: partner_id
         description: ''
         required: true
-        example: 3
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
+        custom: []
+      minimum_steps:
+        name: minimum_steps
+        description: 'Must be at least 0.'
+        required: true
+        example: 42
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      current_steps_in_beginning:
+        name: current_steps_in_beginning
+        description: 'Must be at least 0.'
+        required: true
+        example: 34
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanBodyParameters:
-      partner_id: 3
+      partner_id: 8
+      minimum_steps: 42
+      current_steps_in_beginning: 34
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 4ak1bchv8ZV635aPfD6Eedg'
+      - 'Bearer V1dfv8a3b5kEahcDPg46e6Z'
     controller: null
     method: null
     route: null
@@ -118,36 +141,50 @@ endpoints:
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       current_latitude:
         name: current_latitude
         description: ''
         required: true
-        example: 104355.1584068
+        example: 754.526
         type: number
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
       current_longitude:
         name: current_longitude
         description: ''
         required: true
-        example: 3220.0
+        example: 13707127.3354
         type: number
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
+        custom: []
+      current_steps_in_end:
+        name: current_steps_in_end
+        description: 'Must be at least 0.'
+        required: true
+        example: 40
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanBodyParameters:
       challenge_id: 17
-      current_latitude: 104355.1584068
-      current_longitude: 3220.0
+      current_latitude: 754.526
+      current_longitude: 13707127.3354
+      current_steps_in_end: 40
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 6h1bcE6dDZvVfkg34e8Pa5a'
+      - 'Bearer Z8DEvVagac45k6bhf3eP61d'
     controller: null
     method: null
     route: null
@@ -178,6 +215,7 @@ endpoints:
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanUrlParameters:
       atOurPartner_id: 1
@@ -191,7 +229,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 14c8EPkg6fVZvb63daDhae5'
+      - 'Bearer vb6ah6gkE8DcZ1ad5feP43V'
     controller: null
     method: null
     route: null
@@ -217,15 +255,26 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      challenge_id:
+        name: challenge_id
+        description: 'The <code>id</code> of an existing record in the at_our_partners table.'
+        required: true
+        example: eveniet
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      challenge_id: eveniet
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer k6P5eZaf8daDghVEc3v641b'
+      - 'Bearer a6aZ1DvfE4kV5dbPh8ce3g6'
     controller: null
     method: null
     route: null

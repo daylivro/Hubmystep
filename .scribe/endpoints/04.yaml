@@ -62,13 +62,14 @@ endpoints:
         name: challenge_id
         description: 'The ID of the challenge.'
         required: true
-        example: 3
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanUrlParameters:
-      challenge_id: 3
+      challenge_id: 10
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -77,7 +78,7 @@ endpoints:
     responses:
       -
         status: 404
-        content: '{"errors":[{"status":404,"title":"Record not found!","detail":"Challenge with id  3 not found"}]}'
+        content: '{"errors":[{"status":404,"title":"Record not found!","detail":"Challenge with id  10 not found"}]}'
         headers:
           content-type: application/problem+json
           cache-control: 'no-cache, private'
@@ -88,7 +89,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer aDecgkP1b45vdVhZ3Ea6f86'
+      - 'Bearer 5cf8ave13P6badgkh46ZVED'
     controller: null
     method: null
     route: null
@@ -122,7 +123,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer cEPvba6kg54feZh6aD381dV'
+      - 'Bearer f53evZ6P6bkgEaahd18c4DV'
     controller: null
     method: null
     route: null

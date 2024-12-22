@@ -27,7 +27,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":2,"name":"KFC","slug":"kfc","image":"https:\/\/mystep.ma.ddev.site:8443\/storage\/01JAFNVS7FPCXADNTM7K3KSTMB.png","location":{"lat":31.6225224,"lng":-7.989825799999999,"formatted_address":"Marrakech, Maroc"},"phone":"+2250744558999","reward_type":"Miles","reward_value":"1000","qr_code":"https:\/\/mystep.ma.ddev.site:8443\/storage\/1729250583.svg"},{"id":1,"name":"Jean Kassi","slug":"jean-kassi","image":"https:\/\/mystep.ma.ddev.site:8443\/storage\/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg","location":{"lat":31.791702,"lng":-7.092619999999999,"formatted_address":"Maroc"},"phone":"+2250744558999","reward_type":"Miles","reward_value":"1000","qr_code":"https:\/\/mystep.ma.ddev.site:8443\/storage\/1729243901.svg"}]}'
+        content: '{"data":[]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -61,13 +61,14 @@ endpoints:
         name: partner_id
         description: 'The ID of the partner.'
         required: true
-        example: 1
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanUrlParameters:
-      partner_id: 1
+      partner_id: 18
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -106,7 +107,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":1,"name":"Restaurant","slug":"restaurant","description":null,"image":"https:\/\/mystep.ma.ddev.site:8443\/storage","desabled_at":null,"deleted_at":null,"created_at":"2024-10-18T09:20:32.000000Z","updated_at":"2024-10-18T09:20:32.000000Z"},{"id":2,"name":"Boutique","slug":"boutique","description":null,"image":"https:\/\/mystep.ma.ddev.site:8443\/storage","desabled_at":null,"deleted_at":null,"created_at":"2024-10-18T09:20:32.000000Z","updated_at":"2024-10-18T09:20:32.000000Z"},{"id":3,"name":"Magasin","slug":"magasin","description":null,"image":"https:\/\/mystep.ma.ddev.site:8443\/storage","desabled_at":null,"deleted_at":null,"created_at":"2024-10-18T09:20:32.000000Z","updated_at":"2024-10-18T09:20:32.000000Z"}]}'
+        content: '{"data":[{"id":1,"name":"Restaurant","slug":"restaurant","description":null,"image":"https:\/\/mystep.ma.ddev.site:33001\/storage","desabled_at":null,"deleted_at":null,"created_at":"2024-12-22T08:59:12.000000Z","updated_at":"2024-12-22T08:59:12.000000Z"},{"id":2,"name":"Boutique","slug":"boutique","description":null,"image":"https:\/\/mystep.ma.ddev.site:33001\/storage","desabled_at":null,"deleted_at":null,"created_at":"2024-12-22T08:59:12.000000Z","updated_at":"2024-12-22T08:59:12.000000Z"},{"id":3,"name":"Magasin","slug":"magasin","description":null,"image":"https:\/\/mystep.ma.ddev.site:33001\/storage","desabled_at":null,"deleted_at":null,"created_at":"2024-12-22T08:59:12.000000Z","updated_at":"2024-12-22T08:59:12.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -144,6 +145,7 @@ endpoints:
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
         custom: []
     cleanUrlParameters:
       partnerCategory_id: 1
@@ -155,7 +157,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":1,"name":"Restaurant","slug":"restaurant","description":null,"image":"https:\/\/mystep.ma.ddev.site:8443\/storage","desabled_at":null,"deleted_at":null,"created_at":"2024-10-18T09:20:32.000000Z","updated_at":"2024-10-18T09:20:32.000000Z","partners":[{"id":1,"name":"Jean Kassi","slug":"jean-kassi","location":{"lat":31.791702,"lng":-7.092619999999999,"formatted_address":"Maroc"},"image":"https:\/\/mystep.ma.ddev.site:8443\/storage\/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg","partner_category_id":1,"phone":"+2250744558999","email":null,"website":null,"desabled_at":null,"deleted_at":null,"created_at":"2024-10-18T09:31:41.000000Z","updated_at":"2024-10-18T09:31:41.000000Z","reward_id":1,"qr_code":"https:\/\/mystep.ma.ddev.site:8443\/storage\/1729243901.svg"}]}}'
+        content: '{"data":{"id":1,"name":"Restaurant","slug":"restaurant","description":null,"image":"https:\/\/mystep.ma.ddev.site:33001\/storage","desabled_at":null,"deleted_at":null,"created_at":"2024-12-22T08:59:12.000000Z","updated_at":"2024-12-22T08:59:12.000000Z","partners":[]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

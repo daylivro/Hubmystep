@@ -22,11 +22,11 @@
     </script>
 
             <script>
-            var tryItOutBaseUrl = "https://mystep.ma.ddev.site:8443";
+            var tryItOutBaseUrl = "https://mystep.ma.ddev.site:33001";
             var useCsrf = Boolean();
             var csrfUrl = "/sanctum/csrf-cookie";
         </script>
-        <script src="../docs/js/tryitout-4.37.2.js"></script>
+        <script src="../docs/js/tryitout-4.38.0.js"></script>
         <style>
             .code-editor, .response-content {
                 color: whitesmoke;
@@ -131,6 +131,9 @@
                                 responseContent = JSON.stringify(jsonParsed, null, 4);
                             }
                         } catch (e) {}
+
+                        // Replace HTML entities
+                        responseContent = responseContent.replace(/[<>&]/g, (i) => '&#' + i.charCodeAt(0) + ';');
 
                         contentEl.innerHTML = responseContent;
                         isJson && window.hljs.highlightElement(contentEl);
@@ -349,20 +352,6 @@ Send an email to reset password">
                                                    href="#auth-POSTapi-auth-password-forgot">
                                                     Reset password
 Send an email to reset password
-                                                </a>
-                                            </div>
-                                                                                    </div>
-
-                                                                            </div>
-                                                                    <div class="expandable">
-                                        <div class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"
-                                             id="toc-item-auth-POSTapi-auth-password-reset">
-                                            <div class="sl-flex-1 sl-items-center sl-truncate sl-mr-1.5 sl-p-0" title="Reset password
-Reset the password with the token">
-                                                <a class="ElementsTableOfContentsItem sl-block sl-no-underline"
-                                                   href="#auth-POSTapi-auth-password-reset">
-                                                    Reset password
-Reset the password with the token
                                                 </a>
                                             </div>
                                                                                     </div>
@@ -840,7 +829,7 @@ Revoke the token
 
         </div>
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
-            Dernière modification: October 18, 2024
+            Dernière modification: December 22, 2024
         </div>
 
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
@@ -869,7 +858,7 @@ Revoke the token
             <div class="sl-prose sl-markdown-viewer sl-my-4">
                 <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>https://mystep.ma.ddev.site:8443</code>
+    <strong>Base URL</strong>: <code>https://mystep.ma.ddev.site:33001</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -902,7 +891,7 @@ You can switch the language used with the tabs at the top right (or from the nav
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/auth/login"
+            <div title="https://mystep.ma.ddev.site:33001/api/auth/login"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -912,7 +901,7 @@ You can switch the language used with the tabs at the top right (or from the nav
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/auth/login</div>
                     </div>
 
@@ -995,7 +984,7 @@ You can switch the language used with the tabs at the top right (or from the nav
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        dmueller@example.com
+                        simonis.cierra@example.net
                     </div>
                 </div>
             </div>
@@ -1022,7 +1011,7 @@ You can switch the language used with the tabs at the top right (or from the nav
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        wt\q5R&gt;;xPV&lt;QwV#
+                        &lt;+#~%eD3U@7l_
                     </div>
                 </div>
             </div>
@@ -1116,8 +1105,8 @@ You can switch the language used with the tabs at the top right (or from the nav
                                      id="json-body-POSTapi-auth-login"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "email": "dmueller@example.com",
-    "password": "wt\\q5R>;xPV<QwV#"
+    "email": "simonis.cierra@example.net",
+    "password": "<+#~%eD3U@7l_"
 }</div>
                             </div>
                                             </div>
@@ -1209,12 +1198,12 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/auth/login" \
+    "https://mystep.ma.ddev.site:33001/api/auth/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"dmueller@example.com\",
-    \"password\": \"wt\\\\q5R&gt;;xPV&lt;QwV#\"
+    \"email\": \"simonis.cierra@example.net\",
+    \"password\": \"&lt;+#~%eD3U@7l_\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -1224,7 +1213,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/auth/login"
+    "https://mystep.ma.ddev.site:33001/api/auth/login"
 );
 
 const headers = {
@@ -1233,8 +1222,8 @@ const headers = {
 };
 
 let body = {
-    "email": "dmueller@example.com",
-    "password": "wt\\q5R&gt;;xPV&lt;QwV#"
+    "email": "simonis.cierra@example.net",
+    "password": "&lt;+#~%eD3U@7l_"
 };
 
 fetch(url, {
@@ -1262,7 +1251,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/auth/register"
+            <div title="https://mystep.ma.ddev.site:33001/api/auth/register"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -1272,7 +1261,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/auth/register</div>
                     </div>
 
@@ -1355,7 +1344,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        mzrbjaqdyjjfqdedjlrpakocb
+                        axyzwaheulott
                     </div>
                 </div>
             </div>
@@ -1382,7 +1371,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        fgsshagsdfgmhni
+                        dfylhjekabceybbfeheq
                     </div>
                 </div>
             </div>
@@ -1409,7 +1398,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        egottlieb@example.com
+                        abelardo.zulauf@example.com
                     </div>
                 </div>
             </div>
@@ -1426,8 +1415,6 @@ fetch(url, {
                     <div class="sl-font-mono sl-font-semibold sl-mr-2">phone</div>
                                             <span class="sl-truncate sl-text-muted">string</span>
                                     </div>
-                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
-                    <span class="sl-ml-2 sl-text-warning">required</span>
                                     </div>
                 <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
             <p>Must not be greater than 255 characters.</p>
@@ -1436,7 +1423,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        puzboxkujxiyxo
+                        vuzeovjxgaijravb
                     </div>
                 </div>
             </div>
@@ -1463,7 +1450,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        pg6zk?X;_c^S
+                        zf|8XjL\(LJ5(|O
                     </div>
                 </div>
             </div>
@@ -1490,7 +1477,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        eius
+                        unde
                     </div>
                 </div>
             </div>
@@ -1515,7 +1502,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        iykzwqsmspxs
+                        cglzcsjqcyvv
                     </div>
                 </div>
             </div>
@@ -1551,7 +1538,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        a
+                        atque
                     </div>
                 </div>
             </div>
@@ -1645,15 +1632,15 @@ fetch(url, {
                                      id="json-body-POSTapi-auth-register"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "first_name": "mzrbjaqdyjjfqdedjlrpakocb",
-    "last_name": "fgsshagsdfgmhni",
-    "email": "egottlieb@example.com",
-    "phone": "puzboxkujxiyxo",
-    "password": "pg6zk?X;_c^S",
-    "password_confirmation": "eius",
-    "address": "iykzwqsmspxs",
+    "first_name": "axyzwaheulott",
+    "last_name": "dfylhjekabceybbfeheq",
+    "email": "abelardo.zulauf@example.com",
+    "phone": "vuzeovjxgaijravb",
+    "password": "zf|8XjL\\(LJ5(|O",
+    "password_confirmation": "unde",
+    "address": "cglzcsjqcyvv",
     "location": null,
-    "referal_code": "a"
+    "referal_code": "atque"
 }</div>
                             </div>
                                             </div>
@@ -1745,18 +1732,18 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/auth/register" \
+    "https://mystep.ma.ddev.site:33001/api/auth/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"mzrbjaqdyjjfqdedjlrpakocb\",
-    \"last_name\": \"fgsshagsdfgmhni\",
-    \"email\": \"egottlieb@example.com\",
-    \"phone\": \"puzboxkujxiyxo\",
-    \"password\": \"pg6zk?X;_c^S\",
-    \"password_confirmation\": \"eius\",
-    \"address\": \"iykzwqsmspxs\",
-    \"referal_code\": \"a\"
+    \"first_name\": \"axyzwaheulott\",
+    \"last_name\": \"dfylhjekabceybbfeheq\",
+    \"email\": \"abelardo.zulauf@example.com\",
+    \"phone\": \"vuzeovjxgaijravb\",
+    \"password\": \"zf|8XjL\\\\(LJ5(|O\",
+    \"password_confirmation\": \"unde\",
+    \"address\": \"cglzcsjqcyvv\",
+    \"referal_code\": \"atque\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -1766,7 +1753,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/auth/register"
+    "https://mystep.ma.ddev.site:33001/api/auth/register"
 );
 
 const headers = {
@@ -1775,14 +1762,14 @@ const headers = {
 };
 
 let body = {
-    "first_name": "mzrbjaqdyjjfqdedjlrpakocb",
-    "last_name": "fgsshagsdfgmhni",
-    "email": "egottlieb@example.com",
-    "phone": "puzboxkujxiyxo",
-    "password": "pg6zk?X;_c^S",
-    "password_confirmation": "eius",
-    "address": "iykzwqsmspxs",
-    "referal_code": "a"
+    "first_name": "axyzwaheulott",
+    "last_name": "dfylhjekabceybbfeheq",
+    "email": "abelardo.zulauf@example.com",
+    "phone": "vuzeovjxgaijravb",
+    "password": "zf|8XjL\\(LJ5(|O",
+    "password_confirmation": "unde",
+    "address": "cglzcsjqcyvv",
+    "referal_code": "atque"
 };
 
 fetch(url, {
@@ -1811,7 +1798,7 @@ Send an email to reset password
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/auth/password/forgot"
+            <div title="https://mystep.ma.ddev.site:33001/api/auth/password/forgot"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -1821,7 +1808,7 @@ Send an email to reset password
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/auth/password/forgot</div>
                     </div>
 
@@ -1904,7 +1891,7 @@ Send an email to reset password
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        kuhn.giuseppe@example.com
+                        taya.mills@example.org
                     </div>
                 </div>
             </div>
@@ -1998,7 +1985,7 @@ Send an email to reset password
                                      id="json-body-POSTapi-auth-password-forgot"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "email": "kuhn.giuseppe@example.com"
+    "email": "taya.mills@example.org"
 }</div>
                             </div>
                                             </div>
@@ -2090,11 +2077,11 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/auth/password/forgot" \
+    "https://mystep.ma.ddev.site:33001/api/auth/password/forgot" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"kuhn.giuseppe@example.com\"
+    \"email\": \"taya.mills@example.org\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -2104,7 +2091,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/auth/password/forgot"
+    "https://mystep.ma.ddev.site:33001/api/auth/password/forgot"
 );
 
 const headers = {
@@ -2113,398 +2100,7 @@ const headers = {
 };
 
 let body = {
-    "email": "kuhn.giuseppe@example.com"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre>                                        </div>
-                                    </div>
-                                </div>
-                                                    </div>
-                    
-                            </div>
-    </div>
-</div>
-
-                    <div class="sl-stack sl-stack--vertical sl-stack--8 HttpOperation sl-flex sl-flex-col sl-items-stretch sl-w-full">
-    <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
-        <div class="sl-relative">
-            <div class="sl-stack sl-stack--horizontal sl-stack--5 sl-flex sl-flex-row sl-items-center">
-                <h2 class="sl-text-3xl sl-leading-tight sl-font-prose sl-text-heading sl-mt-5 sl-mb-1"
-                    id="auth-POSTapi-auth-password-reset">
-                    Reset password
-Reset the password with the token
-                </h2>
-            </div>
-        </div>
-
-        <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/auth/password/reset"
-                     class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
-                >
-                                            <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
-                             style="background-color: black;"
-                        >
-                            POST
-                        </div>
-                                        <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
-                        <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
-                        <div class="sl-flex-1 sl-font-semibold">/api/auth/password/reset</div>
-                    </div>
-
-                                    </div>
-        </div>
-
-        
-    </div>
-    <div class="sl-flex">
-        <div data-testid="two-column-left" class="sl-flex-1 sl-w-0">
-            <div class="sl-stack sl-stack--vertical sl-stack--10 sl-flex sl-flex-col sl-items-stretch">
-                <div class="sl-stack sl-stack--vertical sl-stack--8 sl-flex sl-flex-col sl-items-stretch">
-                                            <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
-                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">
-                                Headers
-                            </h3>
-                            <div class="sl-text-sm">
-                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
-    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
-    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
-        <div class="sl-flex sl-items-center sl-max-w-full">
-                                        <div class="sl-flex sl-items-baseline sl-text-base">
-                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Content-Type</div>
-                                    </div>
-                                    </div>
-                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
-                <span>Example:</span> <!-- <span> important for spacing -->
-                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
-                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        application/json
-                    </div>
-                </div>
-            </div>
-            </div>
-</div>
-                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
-    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
-    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
-        <div class="sl-flex sl-items-center sl-max-w-full">
-                                        <div class="sl-flex sl-items-baseline sl-text-base">
-                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Accept</div>
-                                    </div>
-                                    </div>
-                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
-                <span>Example:</span> <!-- <span> important for spacing -->
-                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
-                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        application/json
-                    </div>
-                </div>
-            </div>
-            </div>
-</div>
-                                                            </div>
-                        </div>
-                    
-                    
-
-                    
-                                            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
-                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">Body Parameters</h3>
-
-                                <div class="sl-text-sm">
-                                    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
-        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
-    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
-    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
-        <div class="sl-flex sl-items-center sl-max-w-full">
-                                        <div class="sl-flex sl-items-baseline sl-text-base">
-                    <div class="sl-font-mono sl-font-semibold sl-mr-2">email</div>
-                                            <span class="sl-truncate sl-text-muted">string</span>
-                                    </div>
-                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
-                    <span class="sl-ml-2 sl-text-warning">required</span>
-                                    </div>
-                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
-            <p>Must be a valid email address. Must not be greater than 255 characters.</p>
-        </div>
-                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
-                <span>Example:</span> <!-- <span> important for spacing -->
-                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
-                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        hettinger.lura@example.org
-                    </div>
-                </div>
-            </div>
-            </div>
-</div>
-
-            </div>
-    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
-        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
-    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
-    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
-        <div class="sl-flex sl-items-center sl-max-w-full">
-                                        <div class="sl-flex sl-items-baseline sl-text-base">
-                    <div class="sl-font-mono sl-font-semibold sl-mr-2">password</div>
-                                            <span class="sl-truncate sl-text-muted">string</span>
-                                    </div>
-                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
-                    <span class="sl-ml-2 sl-text-warning">required</span>
-                                    </div>
-                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
-            <p>The value and <code>email</code> must be different. Must be at least 8 characters.</p>
-        </div>
-                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
-                <span>Example:</span> <!-- <span> important for spacing -->
-                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
-                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        1N`$uZ&quot;=
-                    </div>
-                </div>
-            </div>
-            </div>
-</div>
-
-            </div>
-    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
-        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
-    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
-    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
-        <div class="sl-flex sl-items-center sl-max-w-full">
-                                        <div class="sl-flex sl-items-baseline sl-text-base">
-                    <div class="sl-font-mono sl-font-semibold sl-mr-2">password_confirmation</div>
-                                            <span class="sl-truncate sl-text-muted">string</span>
-                                    </div>
-                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
-                    <span class="sl-ml-2 sl-text-warning">required</span>
-                                    </div>
-                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
-            <p>The value and <code>password</code> must match.</p>
-        </div>
-                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
-                <span>Example:</span> <!-- <span> important for spacing -->
-                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
-                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        ex
-                    </div>
-                </div>
-            </div>
-            </div>
-</div>
-
-            </div>
-                            </div>
-                        </div>
-                    
-                                    </div>
-            </div>
-        </div>
-
-        <div data-testid="two-column-right" class="sl-relative sl-w-2/5 sl-ml-16" style="max-width: 500px;">
-            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
-
-                                    <div class="sl-inverted">
-    <div class="sl-overflow-y-hidden sl-rounded-lg">
-        <form class="TryItPanel sl-bg-canvas-100 sl-rounded-lg"
-              data-method="POST"
-              data-path="api/auth/password/reset"
-              data-hasfiles="0"
-              data-hasjsonbody="1">
-            
-                            <div class="sl-panel sl-outline-none sl-w-full expandable">
-                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
-                         role="button">
-                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
-                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
-                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                     data-icon="caret-down"
-                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
-                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                    <path fill="currentColor"
-                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
-                                </svg>
-                            </div>
-                            Headers
-                        </div>
-                    </div>
-                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
-                        <div class="ParameterGrid sl-p-4">
-                                                                                            <label aria-hidden="true"
-                                       for="header-POSTapi-auth-password-reset-Content-Type">Content-Type</label>
-                                <span class="sl-mx-3">:</span>
-                                <div class="sl-flex sl-flex-1">
-                                    <div class="sl-input sl-flex-1 sl-relative">
-                                        <input aria-label="Content-Type" name="Content-Type"
-                                               id="header-POSTapi-auth-password-reset-Content-Type"
-                                               value="application/json" data-component="header"
-                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
-                                    </div>
-                                </div>
-                                                                                            <label aria-hidden="true"
-                                       for="header-POSTapi-auth-password-reset-Accept">Accept</label>
-                                <span class="sl-mx-3">:</span>
-                                <div class="sl-flex sl-flex-1">
-                                    <div class="sl-input sl-flex-1 sl-relative">
-                                        <input aria-label="Accept" name="Accept"
-                                               id="header-POSTapi-auth-password-reset-Accept"
-                                               value="application/json" data-component="header"
-                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
-                                    </div>
-                                </div>
-                                                    </div>
-                    </div>
-                </div>
-            
-            
-            
-                            <div class="sl-panel sl-outline-none sl-w-full expandable">
-                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
-                         role="button">
-                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
-                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
-                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                     data-icon="caret-down"
-                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
-                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                    <path fill="currentColor"
-                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
-                                </svg>
-                            </div>
-                            Body
-                        </div>
-                    </div>
-                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
-                                                    <div class="TextRequestBody sl-p-4">
-                                <div class="code-editor language-json"
-                                     id="json-body-POSTapi-auth-password-reset"
-                                     style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
-                                >{
-    "email": "hettinger.lura@example.org",
-    "password": "1N`$uZ\"=",
-    "password_confirmation": "ex"
-}</div>
-                            </div>
-                                            </div>
-                </div>
-            
-            <div class="SendButtonHolder sl-mt-4 sl-p-4 sl-pt-0">
-                <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center">
-                    <button type="button" data-endpoint="POSTapi-auth-password-reset"
-                            class="tryItOut-btn sl-button sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-bg-primary hover:sl-bg-primary-dark active:sl-bg-primary-darker disabled:sl-bg-canvas-100 sl-text-on-primary disabled:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70"
-                    >
-                        Send Request 💥
-                    </button>
-                </div>
-            </div>
-
-            <div data-endpoint="POSTapi-auth-password-reset"
-                 class="tryItOut-error expandable sl-panel sl-outline-none sl-w-full" hidden>
-                <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
-                     role="button">
-                    <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
-                        <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
-                            <svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                 data-icon="caret-down"
-                                 class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
-                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                <path fill="currentColor"
-                                      d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
-                            </svg>
-                        </div>
-                        Request failed with error
-                    </div>
-                </div>
-                <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
-                    <div class="sl-panel__content sl-p-4">
-                        <p class="sl-pb-2"><strong class="error-message"></strong></p>
-                        <p class="sl-pb-2">Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</p>
-                    </div>
-                </div>
-            </div>
-
-                <div data-endpoint="POSTapi-auth-password-reset"
-                     class="tryItOut-response expandable sl-panel sl-outline-none sl-w-full" hidden>
-                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
-                         role="button">
-                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
-                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
-                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                     data-icon="caret-down"
-                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
-                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                    <path fill="currentColor"
-                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
-                                </svg>
-                            </div>
-                            Received response
-                        </div>
-                    </div>
-                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
-                        <div class="sl-panel__content sl-p-4">
-                            <p class="sl-pb-2 response-status"></p>
-                            <pre><code class="sl-pb-2 response-content language-json"
-                                       data-empty-response-text="<Empty response>"
-                                       style="max-height: 300px;"></code></pre>
-                        </div>
-                    </div>
-                </div>
-        </form>
-    </div>
-</div>
-                
-                                            <div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg">
-                            <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none">
-                                <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
-                                    <div class="sl--ml-2">
-                                        Example request:
-                                        <select class="example-request-lang-toggle sl-text-base"
-                                                aria-label="Request Sample Language"
-                                                onchange="switchExampleLanguage(event.target.value);">
-                                                                                            <option>bash</option>
-                                                                                            <option>javascript</option>
-                                                                                    </select>
-                                    </div>
-                                </div>
-                            </div>
-                                                            <div class="sl-bg-canvas-100 example-request example-request-bash"
-                                     style="">
-                                    <div class="sl-px-0 sl-py-1">
-                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
-                                            <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/auth/password/reset" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"email\": \"hettinger.lura@example.org\",
-    \"password\": \"1N`$uZ\\\"=\",
-    \"password_confirmation\": \"ex\"
-}"
-</code></pre>                                        </div>
-                                    </div>
-                                </div>
-                                                            <div class="sl-bg-canvas-100 example-request example-request-javascript"
-                                     style="display: none;">
-                                    <div class="sl-px-0 sl-py-1">
-                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
-                                            <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/auth/password/reset"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "email": "hettinger.lura@example.org",
-    "password": "1N`$uZ\"=",
-    "password_confirmation": "ex"
+    "email": "taya.mills@example.org"
 };
 
 fetch(url, {
@@ -2532,7 +2128,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/auth/otp/resend"
+            <div title="https://mystep.ma.ddev.site:33001/api/auth/otp/resend"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -2542,7 +2138,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/auth/otp/resend</div>
                     </div>
 
@@ -2625,7 +2221,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        klesch@example.org
+                        pagac.obie@example.org
                     </div>
                 </div>
             </div>
@@ -2719,7 +2315,7 @@ fetch(url, {
                                      id="json-body-POSTapi-auth-otp-resend"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "email": "klesch@example.org"
+    "email": "pagac.obie@example.org"
 }</div>
                             </div>
                                             </div>
@@ -2811,11 +2407,11 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/auth/otp/resend" \
+    "https://mystep.ma.ddev.site:33001/api/auth/otp/resend" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"klesch@example.org\"
+    \"email\": \"pagac.obie@example.org\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -2825,7 +2421,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/auth/otp/resend"
+    "https://mystep.ma.ddev.site:33001/api/auth/otp/resend"
 );
 
 const headers = {
@@ -2834,7 +2430,7 @@ const headers = {
 };
 
 let body = {
-    "email": "klesch@example.org"
+    "email": "pagac.obie@example.org"
 };
 
 fetch(url, {
@@ -2862,7 +2458,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/auth/otp/verify"
+            <div title="https://mystep.ma.ddev.site:33001/api/auth/otp/verify"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -2872,7 +2468,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/auth/otp/verify</div>
                     </div>
 
@@ -2955,7 +2551,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        yschmeler@example.com
+                        eloy.wolff@example.org
                     </div>
                 </div>
             </div>
@@ -2979,7 +2575,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        fugit
+                        assumenda
                     </div>
                 </div>
             </div>
@@ -3073,8 +2669,8 @@ fetch(url, {
                                      id="json-body-POSTapi-auth-otp-verify"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "email": "yschmeler@example.com",
-    "token": "fugit"
+    "email": "eloy.wolff@example.org",
+    "token": "assumenda"
 }</div>
                             </div>
                                             </div>
@@ -3166,12 +2762,12 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/auth/otp/verify" \
+    "https://mystep.ma.ddev.site:33001/api/auth/otp/verify" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"yschmeler@example.com\",
-    \"token\": \"fugit\"
+    \"email\": \"eloy.wolff@example.org\",
+    \"token\": \"assumenda\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -3181,7 +2777,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/auth/otp/verify"
+    "https://mystep.ma.ddev.site:33001/api/auth/otp/verify"
 );
 
 const headers = {
@@ -3190,8 +2786,8 @@ const headers = {
 };
 
 let body = {
-    "email": "yschmeler@example.com",
-    "token": "fugit"
+    "email": "eloy.wolff@example.org",
+    "token": "assumenda"
 };
 
 fetch(url, {
@@ -3220,7 +2816,7 @@ Revoke the token
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/auth/logout"
+            <div title="https://mystep.ma.ddev.site:33001/api/auth/logout"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -3230,7 +2826,7 @@ Revoke the token
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/auth/logout</div>
                     </div>
 
@@ -3497,7 +3093,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/auth/logout" \
+    "https://mystep.ma.ddev.site:33001/api/auth/logout" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -3508,7 +3104,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/auth/logout"
+    "https://mystep.ma.ddev.site:33001/api/auth/logout"
 );
 
 const headers = {
@@ -3549,7 +3145,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/challenge"
+            <div title="https://mystep.ma.ddev.site:33001/api/challenge"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -3559,7 +3155,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/challenge</div>
                     </div>
 
@@ -3768,7 +3364,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/challenge" \
+    --get "https://mystep.ma.ddev.site:33001/api/challenge" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -3778,7 +3374,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/challenge"
+    "https://mystep.ma.ddev.site:33001/api/challenge"
 );
 
 const headers = {
@@ -3873,7 +3469,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/challenge/{challenge_id}"
+            <div title="https://mystep.ma.ddev.site:33001/api/challenge/{challenge_id}"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -3883,7 +3479,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/challenge/{challenge_id}</div>
                     </div>
 
@@ -3984,7 +3580,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        3
+                        10
                     </div>
                 </div>
             </div>
@@ -4117,7 +3713,7 @@ fetch(url, {
                                         <input aria-label="challenge_id" name="challenge_id"
                                                id="urlparam-GETapi-challenge--challenge_id--challenge_id"
                                                placeholder="The ID of the challenge."
-                                               value="3" data-component="url"
+                                               value="10" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -4213,7 +3809,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/challenge/3" \
+    --get "https://mystep.ma.ddev.site:33001/api/challenge/10" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -4224,7 +3820,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/challenge/3"
+    "https://mystep.ma.ddev.site:33001/api/challenge/10"
 );
 
 const headers = {
@@ -4303,7 +3899,7 @@ fetch(url, {
         {
             &quot;status&quot;: 404,
             &quot;title&quot;: &quot;Record not found!&quot;,
-            &quot;detail&quot;: &quot;Challenge with id  3 not found&quot;
+            &quot;detail&quot;: &quot;Challenge with id  10 not found&quot;
         }
     ]
 }</code></pre>
@@ -4326,7 +3922,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/challenge/add/participant"
+            <div title="https://mystep.ma.ddev.site:33001/api/challenge/add/participant"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -4336,7 +3932,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/challenge/add/participant</div>
                     </div>
 
@@ -4603,7 +4199,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/challenge/add/participant" \
+    "https://mystep.ma.ddev.site:33001/api/challenge/add/participant" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -4614,7 +4210,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/challenge/add/participant"
+    "https://mystep.ma.ddev.site:33001/api/challenge/add/participant"
 );
 
 const headers = {
@@ -4655,7 +4251,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/faq"
+            <div title="https://mystep.ma.ddev.site:33001/api/faq"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -4665,7 +4261,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/faq</div>
                     </div>
 
@@ -4932,7 +4528,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/faq" \
+    --get "https://mystep.ma.ddev.site:33001/api/faq" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -4943,7 +4539,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/faq"
+    "https://mystep.ma.ddev.site:33001/api/faq"
 );
 
 const headers = {
@@ -5039,7 +4635,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/faq/{faqCatalog_id}"
+            <div title="https://mystep.ma.ddev.site:33001/api/faq/{faqCatalog_id}"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -5049,7 +4645,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/faq/{faqCatalog_id}</div>
                     </div>
 
@@ -5150,7 +4746,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        8
+                        5
                     </div>
                 </div>
             </div>
@@ -5283,7 +4879,7 @@ fetch(url, {
                                         <input aria-label="faqCatalog_id" name="faqCatalog_id"
                                                id="urlparam-GETapi-faq--faqCatalog_id--faqCatalog_id"
                                                placeholder="The ID of the faqCatalog."
-                                               value="8" data-component="url"
+                                               value="5" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -5379,7 +4975,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/faq/8" \
+    --get "https://mystep.ma.ddev.site:33001/api/faq/5" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -5390,7 +4986,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/faq/8"
+    "https://mystep.ma.ddev.site:33001/api/faq/5"
 );
 
 const headers = {
@@ -5469,7 +5065,7 @@ fetch(url, {
         {
             &quot;status&quot;: 404,
             &quot;title&quot;: &quot;Record not found!&quot;,
-            &quot;detail&quot;: &quot;FaqCatalog with id  8 not found&quot;
+            &quot;detail&quot;: &quot;FaqCatalog with id  5 not found&quot;
         }
     ]
 }</code></pre>
@@ -5500,7 +5096,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/participation"
+            <div title="https://mystep.ma.ddev.site:33001/api/participation"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -5510,7 +5106,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/participation</div>
                     </div>
 
@@ -5777,7 +5373,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/participation" \
+    --get "https://mystep.ma.ddev.site:33001/api/participation" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -5788,7 +5384,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/participation"
+    "https://mystep.ma.ddev.site:33001/api/participation"
 );
 
 const headers = {
@@ -5890,7 +5486,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/participation"
+            <div title="https://mystep.ma.ddev.site:33001/api/participation"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -5900,7 +5496,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/participation</div>
                     </div>
 
@@ -5998,11 +5594,14 @@ fetch(url, {
                                     <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
                     <span class="sl-ml-2 sl-text-warning">required</span>
                                     </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>The <code>id</code> of an existing record in the challenges table.</p>
+        </div>
                                             <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        id
+                        numquam
                     </div>
                 </div>
             </div>
@@ -6132,7 +5731,7 @@ fetch(url, {
                                      id="json-body-POSTapi-participation"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "challenge_id": "id"
+    "challenge_id": "numquam"
 }</div>
                             </div>
                                             </div>
@@ -6224,12 +5823,12 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/participation" \
+    "https://mystep.ma.ddev.site:33001/api/participation" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"challenge_id\": \"id\"
+    \"challenge_id\": \"numquam\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -6239,7 +5838,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/participation"
+    "https://mystep.ma.ddev.site:33001/api/participation"
 );
 
 const headers = {
@@ -6249,7 +5848,7 @@ const headers = {
 };
 
 let body = {
-    "challenge_id": "id"
+    "challenge_id": "numquam"
 };
 
 fetch(url, {
@@ -6277,7 +5876,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/participation/mark-as-paid"
+            <div title="https://mystep.ma.ddev.site:33001/api/participation/mark-as-paid"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -6287,7 +5886,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/participation/mark-as-paid</div>
                     </div>
 
@@ -6385,11 +5984,14 @@ fetch(url, {
                                     <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
                     <span class="sl-ml-2 sl-text-warning">required</span>
                                     </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>The <code>id</code> of an existing record in the challenge_users table.</p>
+        </div>
                                             <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        eaque
+                        quod
                     </div>
                 </div>
             </div>
@@ -6519,7 +6121,7 @@ fetch(url, {
                                      id="json-body-POSTapi-participation-mark-as-paid"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "challenge_user_id": "eaque"
+    "challenge_user_id": "quod"
 }</div>
                             </div>
                                             </div>
@@ -6611,12 +6213,12 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/participation/mark-as-paid" \
+    "https://mystep.ma.ddev.site:33001/api/participation/mark-as-paid" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"challenge_user_id\": \"eaque\"
+    \"challenge_user_id\": \"quod\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -6626,7 +6228,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/participation/mark-as-paid"
+    "https://mystep.ma.ddev.site:33001/api/participation/mark-as-paid"
 );
 
 const headers = {
@@ -6636,7 +6238,7 @@ const headers = {
 };
 
 let body = {
-    "challenge_user_id": "eaque"
+    "challenge_user_id": "quod"
 };
 
 fetch(url, {
@@ -6672,7 +6274,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/partner"
+            <div title="https://mystep.ma.ddev.site:33001/api/partner"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -6682,7 +6284,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/partner</div>
                     </div>
 
@@ -6891,7 +6493,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/partner" \
+    --get "https://mystep.ma.ddev.site:33001/api/partner" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -6901,7 +6503,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/partner"
+    "https://mystep.ma.ddev.site:33001/api/partner"
 );
 
 const headers = {
@@ -6975,38 +6577,7 @@ fetch(url, {
                                                                                                                                                                         
                                             <pre><code style="max-height: 300px;"
                                                        class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 2,
-            &quot;name&quot;: &quot;KFC&quot;,
-            &quot;slug&quot;: &quot;kfc&quot;,
-            &quot;image&quot;: &quot;https://mystep.ma.ddev.site:8443/storage/01JAFNVS7FPCXADNTM7K3KSTMB.png&quot;,
-            &quot;location&quot;: {
-                &quot;lat&quot;: 31.6225224,
-                &quot;lng&quot;: -7.989825799999999,
-                &quot;formatted_address&quot;: &quot;Marrakech, Maroc&quot;
-            },
-            &quot;phone&quot;: &quot;+2250744558999&quot;,
-            &quot;reward_type&quot;: &quot;Miles&quot;,
-            &quot;reward_value&quot;: &quot;1000&quot;,
-            &quot;qr_code&quot;: &quot;https://mystep.ma.ddev.site:8443/storage/1729250583.svg&quot;
-        },
-        {
-            &quot;id&quot;: 1,
-            &quot;name&quot;: &quot;Jean Kassi&quot;,
-            &quot;slug&quot;: &quot;jean-kassi&quot;,
-            &quot;image&quot;: &quot;https://mystep.ma.ddev.site:8443/storage/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg&quot;,
-            &quot;location&quot;: {
-                &quot;lat&quot;: 31.791702,
-                &quot;lng&quot;: -7.092619999999999,
-                &quot;formatted_address&quot;: &quot;Maroc&quot;
-            },
-            &quot;phone&quot;: &quot;+2250744558999&quot;,
-            &quot;reward_type&quot;: &quot;Miles&quot;,
-            &quot;reward_value&quot;: &quot;1000&quot;,
-            &quot;qr_code&quot;: &quot;https://mystep.ma.ddev.site:8443/storage/1729243901.svg&quot;
-        }
-    ]
+    &quot;data&quot;: []
 }</code></pre>
                                                                             </div>
                                 </div>
@@ -7027,7 +6598,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/partner/{partner_id}"
+            <div title="https://mystep.ma.ddev.site:33001/api/partner/{partner_id}"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -7037,7 +6608,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/partner/{partner_id}</div>
                     </div>
 
@@ -7116,7 +6687,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        1
+                        18
                     </div>
                 </div>
             </div>
@@ -7213,7 +6784,7 @@ fetch(url, {
                                         <input aria-label="partner_id" name="partner_id"
                                                id="urlparam-POSTapi-partner--partner_id--partner_id"
                                                placeholder="The ID of the partner."
-                                               value="1" data-component="url"
+                                               value="18" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -7309,7 +6880,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/partner/1" \
+    "https://mystep.ma.ddev.site:33001/api/partner/18" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -7319,7 +6890,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/partner/1"
+    "https://mystep.ma.ddev.site:33001/api/partner/18"
 );
 
 const headers = {
@@ -7351,7 +6922,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/partner-type"
+            <div title="https://mystep.ma.ddev.site:33001/api/partner-type"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -7361,7 +6932,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/partner-type</div>
                     </div>
 
@@ -7570,7 +7141,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/partner-type" \
+    --get "https://mystep.ma.ddev.site:33001/api/partner-type" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -7580,7 +7151,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/partner-type"
+    "https://mystep.ma.ddev.site:33001/api/partner-type"
 );
 
 const headers = {
@@ -7660,33 +7231,33 @@ fetch(url, {
             &quot;name&quot;: &quot;Restaurant&quot;,
             &quot;slug&quot;: &quot;restaurant&quot;,
             &quot;description&quot;: null,
-            &quot;image&quot;: &quot;https://mystep.ma.ddev.site:8443/storage&quot;,
+            &quot;image&quot;: &quot;https://mystep.ma.ddev.site:33001/storage&quot;,
             &quot;desabled_at&quot;: null,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-18T09:20:32.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-18T09:20:32.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-12-22T08:59:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-12-22T08:59:12.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;name&quot;: &quot;Boutique&quot;,
             &quot;slug&quot;: &quot;boutique&quot;,
             &quot;description&quot;: null,
-            &quot;image&quot;: &quot;https://mystep.ma.ddev.site:8443/storage&quot;,
+            &quot;image&quot;: &quot;https://mystep.ma.ddev.site:33001/storage&quot;,
             &quot;desabled_at&quot;: null,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-18T09:20:32.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-18T09:20:32.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-12-22T08:59:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-12-22T08:59:12.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
             &quot;name&quot;: &quot;Magasin&quot;,
             &quot;slug&quot;: &quot;magasin&quot;,
             &quot;description&quot;: null,
-            &quot;image&quot;: &quot;https://mystep.ma.ddev.site:8443/storage&quot;,
+            &quot;image&quot;: &quot;https://mystep.ma.ddev.site:33001/storage&quot;,
             &quot;desabled_at&quot;: null,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-18T09:20:32.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-18T09:20:32.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-12-22T08:59:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-12-22T08:59:12.000000Z&quot;
         }
     ]
 }</code></pre>
@@ -7709,7 +7280,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/partner-type/{partnerCategory_id}"
+            <div title="https://mystep.ma.ddev.site:33001/api/partner-type/{partnerCategory_id}"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -7719,7 +7290,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/partner-type/{partnerCategory_id}</div>
                     </div>
 
@@ -7991,7 +7562,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/partner-type/1" \
+    --get "https://mystep.ma.ddev.site:33001/api/partner-type/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -8001,7 +7572,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/partner-type/1"
+    "https://mystep.ma.ddev.site:33001/api/partner-type/1"
 );
 
 const headers = {
@@ -8080,34 +7651,12 @@ fetch(url, {
         &quot;name&quot;: &quot;Restaurant&quot;,
         &quot;slug&quot;: &quot;restaurant&quot;,
         &quot;description&quot;: null,
-        &quot;image&quot;: &quot;https://mystep.ma.ddev.site:8443/storage&quot;,
+        &quot;image&quot;: &quot;https://mystep.ma.ddev.site:33001/storage&quot;,
         &quot;desabled_at&quot;: null,
         &quot;deleted_at&quot;: null,
-        &quot;created_at&quot;: &quot;2024-10-18T09:20:32.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-18T09:20:32.000000Z&quot;,
-        &quot;partners&quot;: [
-            {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Jean Kassi&quot;,
-                &quot;slug&quot;: &quot;jean-kassi&quot;,
-                &quot;location&quot;: {
-                    &quot;lat&quot;: 31.791702,
-                    &quot;lng&quot;: -7.092619999999999,
-                    &quot;formatted_address&quot;: &quot;Maroc&quot;
-                },
-                &quot;image&quot;: &quot;https://mystep.ma.ddev.site:8443/storage/01JAFFFVAHYXE6A9P2HA2AJ2YD.jpg&quot;,
-                &quot;partner_category_id&quot;: 1,
-                &quot;phone&quot;: &quot;+2250744558999&quot;,
-                &quot;email&quot;: null,
-                &quot;website&quot;: null,
-                &quot;desabled_at&quot;: null,
-                &quot;deleted_at&quot;: null,
-                &quot;created_at&quot;: &quot;2024-10-18T09:31:41.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2024-10-18T09:31:41.000000Z&quot;,
-                &quot;reward_id&quot;: 1,
-                &quot;qr_code&quot;: &quot;https://mystep.ma.ddev.site:8443/storage/1729243901.svg&quot;
-            }
-        ]
+        &quot;created_at&quot;: &quot;2024-12-22T08:59:12.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-12-22T08:59:12.000000Z&quot;,
+        &quot;partners&quot;: []
     }
 }</code></pre>
                                                                             </div>
@@ -8137,7 +7686,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/share"
+            <div title="https://mystep.ma.ddev.site:33001/api/share"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -8147,7 +7696,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/share</div>
                     </div>
 
@@ -8414,7 +7963,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/share" \
+    --get "https://mystep.ma.ddev.site:33001/api/share" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -8425,7 +7974,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/share"
+    "https://mystep.ma.ddev.site:33001/api/share"
 );
 
 const headers = {
@@ -8527,7 +8076,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/share"
+            <div title="https://mystep.ma.ddev.site:33001/api/share"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -8537,7 +8086,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/share</div>
                     </div>
 
@@ -8642,7 +8191,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        81
+                        40
                     </div>
                 </div>
             </div>
@@ -8772,7 +8321,7 @@ fetch(url, {
                                      id="json-body-POSTapi-share"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "shares": 81
+    "shares": 40
 }</div>
                             </div>
                                             </div>
@@ -8864,12 +8413,12 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/share" \
+    "https://mystep.ma.ddev.site:33001/api/share" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"shares\": 81
+    \"shares\": 40
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -8879,7 +8428,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/share"
+    "https://mystep.ma.ddev.site:33001/api/share"
 );
 
 const headers = {
@@ -8889,7 +8438,7 @@ const headers = {
 };
 
 let body = {
-    "shares": 81
+    "shares": 40
 };
 
 fetch(url, {
@@ -8917,7 +8466,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/share/user/history"
+            <div title="https://mystep.ma.ddev.site:33001/api/share/user/history"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -8927,7 +8476,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/share/user/history</div>
                     </div>
 
@@ -9194,7 +8743,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/share/user/history" \
+    --get "https://mystep.ma.ddev.site:33001/api/share/user/history" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -9205,7 +8754,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/share/user/history"
+    "https://mystep.ma.ddev.site:33001/api/share/user/history"
 );
 
 const headers = {
@@ -9315,7 +8864,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/user"
+            <div title="https://mystep.ma.ddev.site:33001/api/user"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -9325,7 +8874,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/user</div>
                     </div>
 
@@ -9592,7 +9141,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/user" \
+    --get "https://mystep.ma.ddev.site:33001/api/user" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -9603,7 +9152,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/user"
+    "https://mystep.ma.ddev.site:33001/api/user"
 );
 
 const headers = {
@@ -9705,7 +9254,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/user/{user_id}"
+            <div title="https://mystep.ma.ddev.site:33001/api/user/{user_id}"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -9715,7 +9264,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/user/{user_id}</div>
                     </div>
 
@@ -9850,7 +9399,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        nnadyduu
+                        hkpelnrlmwqstynvbeddflne
                     </div>
                 </div>
             </div>
@@ -9877,7 +9426,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        ygdgdpfaxvihzirjzuzors
+                        ldt
                     </div>
                 </div>
             </div>
@@ -9904,7 +9453,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        zoey97@example.com
+                        nickolas93@example.com
                     </div>
                 </div>
             </div>
@@ -9921,8 +9470,6 @@ fetch(url, {
                     <div class="sl-font-mono sl-font-semibold sl-mr-2">phone</div>
                                             <span class="sl-truncate sl-text-muted">string</span>
                                     </div>
-                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
-                    <span class="sl-ml-2 sl-text-warning">required</span>
                                     </div>
                 <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
             <p>Must not be greater than 255 characters.</p>
@@ -9931,61 +9478,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        cpfpoztlxaudvjrwwer
-                    </div>
-                </div>
-            </div>
-            </div>
-</div>
-
-            </div>
-    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
-        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
-    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
-    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
-        <div class="sl-flex sl-items-center sl-max-w-full">
-                                        <div class="sl-flex sl-items-baseline sl-text-base">
-                    <div class="sl-font-mono sl-font-semibold sl-mr-2">password</div>
-                                            <span class="sl-truncate sl-text-muted">string</span>
-                                    </div>
-                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
-                    <span class="sl-ml-2 sl-text-warning">required</span>
-                                    </div>
-                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
-            <p>Must be at least 8 characters.</p>
-        </div>
-                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
-                <span>Example:</span> <!-- <span> important for spacing -->
-                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
-                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        oI(eV{n
-                    </div>
-                </div>
-            </div>
-            </div>
-</div>
-
-            </div>
-    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
-        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
-    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
-    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
-        <div class="sl-flex sl-items-center sl-max-w-full">
-                                        <div class="sl-flex sl-items-baseline sl-text-base">
-                    <div class="sl-font-mono sl-font-semibold sl-mr-2">password_confirmation</div>
-                                            <span class="sl-truncate sl-text-muted">string</span>
-                                    </div>
-                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
-                    <span class="sl-ml-2 sl-text-warning">required</span>
-                                    </div>
-                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
-            <p>The value and <code>password</code> must match.</p>
-        </div>
-                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
-                <span>Example:</span> <!-- <span> important for spacing -->
-                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
-                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        velit
+                        rv
                     </div>
                 </div>
             </div>
@@ -10010,7 +9503,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        fysjxbjkuwdwvu
+                        rhmuezfuslvzaqwgafmnpcr
                     </div>
                 </div>
             </div>
@@ -10187,13 +9680,11 @@ fetch(url, {
                                      id="json-body-PUTapi-user--user_id-"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "first_name": "nnadyduu",
-    "last_name": "ygdgdpfaxvihzirjzuzors",
-    "email": "zoey97@example.com",
-    "phone": "cpfpoztlxaudvjrwwer",
-    "password": "oI(eV{n",
-    "password_confirmation": "velit",
-    "address": "fysjxbjkuwdwvu",
+    "first_name": "hkpelnrlmwqstynvbeddflne",
+    "last_name": "ldt",
+    "email": "nickolas93@example.com",
+    "phone": "rv",
+    "address": "rhmuezfuslvzaqwgafmnpcr",
     "location": null
 }</div>
                             </div>
@@ -10286,18 +9777,16 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request PUT \
-    "https://mystep.ma.ddev.site:8443/api/user/1" \
+    "https://mystep.ma.ddev.site:33001/api/user/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"nnadyduu\",
-    \"last_name\": \"ygdgdpfaxvihzirjzuzors\",
-    \"email\": \"zoey97@example.com\",
-    \"phone\": \"cpfpoztlxaudvjrwwer\",
-    \"password\": \"oI(eV{n\",
-    \"password_confirmation\": \"velit\",
-    \"address\": \"fysjxbjkuwdwvu\"
+    \"first_name\": \"hkpelnrlmwqstynvbeddflne\",
+    \"last_name\": \"ldt\",
+    \"email\": \"nickolas93@example.com\",
+    \"phone\": \"rv\",
+    \"address\": \"rhmuezfuslvzaqwgafmnpcr\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -10307,7 +9796,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/user/1"
+    "https://mystep.ma.ddev.site:33001/api/user/1"
 );
 
 const headers = {
@@ -10317,13 +9806,11 @@ const headers = {
 };
 
 let body = {
-    "first_name": "nnadyduu",
-    "last_name": "ygdgdpfaxvihzirjzuzors",
-    "email": "zoey97@example.com",
-    "phone": "cpfpoztlxaudvjrwwer",
-    "password": "oI(eV{n",
-    "password_confirmation": "velit",
-    "address": "fysjxbjkuwdwvu"
+    "first_name": "hkpelnrlmwqstynvbeddflne",
+    "last_name": "ldt",
+    "email": "nickolas93@example.com",
+    "phone": "rv",
+    "address": "rhmuezfuslvzaqwgafmnpcr"
 };
 
 fetch(url, {
@@ -10359,7 +9846,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/visit-our-partner"
+            <div title="https://mystep.ma.ddev.site:33001/api/visit-our-partner"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -10369,7 +9856,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/visit-our-partner</div>
                     </div>
 
@@ -10636,7 +10123,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/visit-our-partner" \
+    --get "https://mystep.ma.ddev.site:33001/api/visit-our-partner" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -10647,7 +10134,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/visit-our-partner"
+    "https://mystep.ma.ddev.site:33001/api/visit-our-partner"
 );
 
 const headers = {
@@ -10749,7 +10236,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/visit-our-partner/start-walking"
+            <div title="https://mystep.ma.ddev.site:33001/api/visit-our-partner/start-walking"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -10759,7 +10246,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/visit-our-partner/start-walking</div>
                     </div>
 
@@ -10861,7 +10348,61 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        3
+                        8
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">minimum_steps</div>
+                                            <span class="sl-truncate sl-text-muted">integer</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>Must be at least 0.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        42
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">current_steps_in_beginning</div>
+                                            <span class="sl-truncate sl-text-muted">integer</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>Must be at least 0.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        34
                     </div>
                 </div>
             </div>
@@ -10991,7 +10532,9 @@ fetch(url, {
                                      id="json-body-POSTapi-visit-our-partner-start-walking"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "partner_id": 3
+    "partner_id": 8,
+    "minimum_steps": 42,
+    "current_steps_in_beginning": 34
 }</div>
                             </div>
                                             </div>
@@ -11083,12 +10626,14 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/visit-our-partner/start-walking" \
+    "https://mystep.ma.ddev.site:33001/api/visit-our-partner/start-walking" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"partner_id\": 3
+    \"partner_id\": 8,
+    \"minimum_steps\": 42,
+    \"current_steps_in_beginning\": 34
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -11098,7 +10643,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/visit-our-partner/start-walking"
+    "https://mystep.ma.ddev.site:33001/api/visit-our-partner/start-walking"
 );
 
 const headers = {
@@ -11108,7 +10653,9 @@ const headers = {
 };
 
 let body = {
-    "partner_id": 3
+    "partner_id": 8,
+    "minimum_steps": 42,
+    "current_steps_in_beginning": 34
 };
 
 fetch(url, {
@@ -11136,7 +10683,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/visit-our-partner/mark-as-walked"
+            <div title="https://mystep.ma.ddev.site:33001/api/visit-our-partner/mark-as-walked"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -11146,7 +10693,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/visit-our-partner/mark-as-walked</div>
                     </div>
 
@@ -11272,7 +10819,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        104355.1584068
+                        754.526
                     </div>
                 </div>
             </div>
@@ -11296,7 +10843,34 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        3220
+                        13707127.3354
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">current_steps_in_end</div>
+                                            <span class="sl-truncate sl-text-muted">integer</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>Must be at least 0.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        40
                     </div>
                 </div>
             </div>
@@ -11427,8 +11001,9 @@ fetch(url, {
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
     "challenge_id": 17,
-    "current_latitude": 104355.1584068,
-    "current_longitude": 3220
+    "current_latitude": 754.526,
+    "current_longitude": 13707127.3354,
+    "current_steps_in_end": 40
 }</div>
                             </div>
                                             </div>
@@ -11520,14 +11095,15 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/visit-our-partner/mark-as-walked" \
+    "https://mystep.ma.ddev.site:33001/api/visit-our-partner/mark-as-walked" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"challenge_id\": 17,
-    \"current_latitude\": 104355.1584068,
-    \"current_longitude\": 3220
+    \"current_latitude\": 754.526,
+    \"current_longitude\": 13707127.3354,
+    \"current_steps_in_end\": 40
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -11537,7 +11113,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/visit-our-partner/mark-as-walked"
+    "https://mystep.ma.ddev.site:33001/api/visit-our-partner/mark-as-walked"
 );
 
 const headers = {
@@ -11548,8 +11124,9 @@ const headers = {
 
 let body = {
     "challenge_id": 17,
-    "current_latitude": 104355.1584068,
-    "current_longitude": 3220
+    "current_latitude": 754.526,
+    "current_longitude": 13707127.3354,
+    "current_steps_in_end": 40
 };
 
 fetch(url, {
@@ -11577,7 +11154,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/visit-our-partner/left-walking/{atOurPartner_id}"
+            <div title="https://mystep.ma.ddev.site:33001/api/visit-our-partner/left-walking/{atOurPartner_id}"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -11587,7 +11164,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/visit-our-partner/left-walking/{atOurPartner_id}</div>
                     </div>
 
@@ -11917,7 +11494,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/visit-our-partner/left-walking/1" \
+    "https://mystep.ma.ddev.site:33001/api/visit-our-partner/left-walking/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -11928,7 +11505,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/visit-our-partner/left-walking/1"
+    "https://mystep.ma.ddev.site:33001/api/visit-our-partner/left-walking/1"
 );
 
 const headers = {
@@ -11961,7 +11538,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/visit-our-partner/transfert-rewards"
+            <div title="https://mystep.ma.ddev.site:33001/api/visit-our-partner/transfert-rewards"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -11971,7 +11548,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/visit-our-partner/transfert-rewards</div>
                     </div>
 
@@ -12053,6 +11630,39 @@ fetch(url, {
                     
 
                     
+                                            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">Body Parameters</h3>
+
+                                <div class="sl-text-sm">
+                                    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">challenge_id</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>The <code>id</code> of an existing record in the at_our_partners table.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        eveniet
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+                            </div>
+                        </div>
                     
                                     </div>
             </div>
@@ -12067,7 +11677,7 @@ fetch(url, {
               data-method="POST"
               data-path="api/visit-our-partner/transfert-rewards"
               data-hasfiles="0"
-              data-hasjsonbody="0">
+              data-hasjsonbody="1">
                             <div class="sl-panel sl-outline-none sl-w-full expandable">
                     <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
                          role="button">
@@ -12151,6 +11761,33 @@ fetch(url, {
             
             
             
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Body
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                                                    <div class="TextRequestBody sl-p-4">
+                                <div class="code-editor language-json"
+                                     id="json-body-POSTapi-visit-our-partner-transfert-rewards"
+                                     style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
+                                >{
+    "challenge_id": "eveniet"
+}</div>
+                            </div>
+                                            </div>
+                </div>
             
             <div class="SendButtonHolder sl-mt-4 sl-p-4 sl-pt-0">
                 <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center">
@@ -12238,10 +11875,14 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "https://mystep.ma.ddev.site:8443/api/visit-our-partner/transfert-rewards" \
+    "https://mystep.ma.ddev.site:33001/api/visit-our-partner/transfert-rewards" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>                                        </div>
+    --header "Accept: application/json" \
+    --data "{
+    \"challenge_id\": \"eveniet\"
+}"
+</code></pre>                                        </div>
                                     </div>
                                 </div>
                                                             <div class="sl-bg-canvas-100 example-request example-request-javascript"
@@ -12249,7 +11890,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/visit-our-partner/transfert-rewards"
+    "https://mystep.ma.ddev.site:33001/api/visit-our-partner/transfert-rewards"
 );
 
 const headers = {
@@ -12258,9 +11899,14 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "challenge_id": "eveniet"
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre>                                        </div>
                                     </div>
                                 </div>
@@ -12290,7 +11936,7 @@ fetch(url, {
         </div>
 
         <div class="sl-relative">
-            <div title="https://mystep.ma.ddev.site:8443/api/wallets"
+            <div title="https://mystep.ma.ddev.site:33001/api/wallets"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -12300,7 +11946,7 @@ fetch(url, {
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:8443</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://mystep.ma.ddev.site:33001</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/wallets</div>
                     </div>
 
@@ -12567,7 +12213,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "https://mystep.ma.ddev.site:8443/api/wallets" \
+    --get "https://mystep.ma.ddev.site:33001/api/wallets" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
@@ -12578,7 +12224,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "https://mystep.ma.ddev.site:8443/api/wallets"
+    "https://mystep.ma.ddev.site:33001/api/wallets"
 );
 
 const headers = {
