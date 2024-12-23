@@ -17,11 +17,15 @@ use App\Policies\FaqCatalogPolicy;
 use App\Policies\PermissionPolicy;
 use Filament\Support\Colors\Color;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Event;
 use App\Policies\PartnerCategoryPolicy;
 use Essa\APIToolKit\Exceptions\Handler;
 use Illuminate\Support\ServiceProvider;
 use Filament\Support\Facades\FilamentColor;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use App\Events\Withdrawal\WithdrawalRequestCreated;
+use App\Listeners\NotifyUserAboutWithdrawalRequest;
+use App\Listeners\NotifyAdminAboutWithdrawalRequest;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -56,6 +60,11 @@ class AppServiceProvider extends ServiceProvider
             'success' => Color::Green,
             'warning' => Color::Amber,
             'secondary' => '#54308E'
+        ]);
+
+        Event::listen(WithdrawalRequestCreated::class, [
+            NotifyAdminAboutWithdrawalRequest::class,
+            NotifyUserAboutWithdrawalRequest::class
         ]);
     }
 }

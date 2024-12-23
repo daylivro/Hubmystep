@@ -43,7 +43,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer gDVdc6ak8f3aZ5hE4v1P6be'
+      - 'Bearer v1ka6h4aVg56EZfPbcd38eD'
     controller: null
     method: null
     route: null
@@ -76,21 +76,21 @@ endpoints:
         name: challenge_id
         description: 'The <code>id</code> of an existing record in the challenges table.'
         required: true
-        example: numquam
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      challenge_id: numquam
+      challenge_id: voluptatem
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 14PkdbhDvV5eg6fa8EZac36'
+      - 'Bearer av8Db46Z5gdE6kef31hPcVa'
     controller: null
     method: null
     route: null
@@ -123,21 +123,21 @@ endpoints:
         name: challenge_user_id
         description: 'The <code>id</code> of an existing record in the challenge_users table.'
         required: true
-        example: quod
+        example: veniam
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      challenge_user_id: quod
+      challenge_user_id: veniam
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 413eVDhc6dk685PfEZagvab'
+      - 'Bearer vV1a8gchb6kD4ea63Z5fEdP'
     controller: null
     method: null
     route: null

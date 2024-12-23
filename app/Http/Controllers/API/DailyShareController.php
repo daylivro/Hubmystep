@@ -29,9 +29,9 @@ class DailyShareController extends Controller
      */
     public function store(ValideDailyShareRequest $request, DailyShareService $validateShareSerivice)
     {
-        if(DailyShare::today()->whereUserId(auth()->id())->count() > 0) {
-            return $this->responseUnprocessable('Today part is already validated');
-        }
+        // if(DailyShare::today()->whereUserId(auth()->id())->count() > 0) {
+        //     return $this->responseUnprocessable('Today part is already validated');
+        // }
 
         $dayliShare = DailyShare::create([
             'user_id' => auth()->id(),
@@ -40,7 +40,7 @@ class DailyShareController extends Controller
         ]);
 
         $validateShareSerivice->save($dayliShare);
-        return $this->responseSuccess('Daily shares validated successfully');
+        return $this->responseSuccess('Vos parts journaliers ont été validées avec succès');
     }
 
     /**

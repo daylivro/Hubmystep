@@ -39,7 +39,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ghDP81Ecd46a6a5ebVv3kZf'
+      - 'Bearer P8d636echgbZ1v4faEDkV5a'
     controller: null
     method: null
     route: null
@@ -70,21 +70,21 @@ endpoints:
         name: shares
         description: 'Must be at least 1.'
         required: true
-        example: 40
+        example: 45
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      shares: 40
+      shares: 45
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer khv1Ead3g6Z5DfP4e6bc8aV'
+      - 'Bearer b5ZhvPf3186dDageka6c4EV'
     controller: null
     method: null
     route: null
@@ -127,7 +127,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Ekh6Za6g5fbDaVvdP18c3e4'
+      - 'Bearer e3PaDZd4ah8kvb165EV6gcf'
     controller: null
     method: null
     route: null

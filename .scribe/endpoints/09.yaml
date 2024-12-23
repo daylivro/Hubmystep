@@ -1,16 +1,20 @@
-name: 'FAQ Catalog'
-description: ''
+name: 'Withdrawal Requests'
+description: |-
+
+  API pour les demandes de retrait
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/faq
+    uri: api/withdrawal-requests
     metadata:
-      groupName: 'FAQ Catalog'
-      groupDescription: ''
+      groupName: 'Withdrawal Requests'
+      groupDescription: |-
+
+        API pour les demandes de retrait
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get all FAQ catalogs'
+      title: "Récupérer les demandes de retrait de l'utilisateur"
       description: ''
       authenticated: true
       custom: []
@@ -27,62 +31,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"data":[]}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer gfhva8aZc5e4bP1DkV36d6E'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/faq/{faqCatalog_id}'
-    metadata:
-      groupName: 'FAQ Catalog'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get a specific FAQ catalog details'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      faqCatalog_id:
-        name: faqCatalog_id
-        description: 'The ID of the faqCatalog.'
-        required: true
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      faqCatalog_id: 3
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 404
-        content: '{"errors":[{"status":404,"title":"Record not found!","detail":"FaqCatalog with id  3 not found"}]}'
+        status: 401
+        content: '{"errors":[{"status":401,"title":"Unauthenticated!","detail":"Unauthenticated."}]}'
         headers:
           content-type: application/problem+json
           cache-control: 'no-cache, private'
@@ -93,7 +43,54 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer b5dvDVg6fca4Eh63ak81ePZ'
+      - 'Bearer EgVeD54a1ca6f3vZd6Pbh8k'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/withdrawal-requests
+    metadata:
+      groupName: 'Withdrawal Requests'
+      groupDescription: |-
+
+        API pour les demandes de retrait
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Créer une demande de retrait'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      miles:
+        name: miles
+        description: 'Must be at least 2000.'
+        required: true
+        example: 754
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      miles: 754
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer c6dV3ge45fD6PEkZ1bvhaa8'
     controller: null
     method: null
     route: null

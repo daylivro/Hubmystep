@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "MyStep API Documentation",
-        "_postman_id": "ed59d166-48a9-478b-9731-b0dd6cc0de36",
+        "_postman_id": "b9582e2a-047a-42de-8c18-e81e611ed2b6",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"simonis.cierra@example.net\",\"password\":\"<+#~%eD3U@7l_\"}"
+                            "raw": "{\"email\":\"noah99@example.com\",\"password\":\"vR<#vk4Auz21%TS>?<:S\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"axyzwaheulott\",\"last_name\":\"dfylhjekabceybbfeheq\",\"email\":\"abelardo.zulauf@example.com\",\"phone\":\"vuzeovjxgaijravb\",\"password\":\"zf|8XjL\\\\(LJ5(|O\",\"password_confirmation\":\"unde\",\"address\":\"cglzcsjqcyvv\",\"referal_code\":\"atque\"}"
+                            "raw": "{\"first_name\":\"ptgskqpvwg\",\"last_name\":\"acqaxuvxevwfsxo\",\"email\":\"mosciski.kyleigh@example.org\",\"phone\":\"svxwbksnemgdig\",\"password\":\"R`$V>-JG$\",\"password_confirmation\":\"est\",\"address\":\"lpxbcmxyiicnlpjlaiiedenzz\",\"referal_code\":\"suscipit\"}"
                         },
                         "description": "",
                         "auth": {
@@ -103,7 +103,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"taya.mills@example.org\"}"
+                            "raw": "{\"email\":\"cremin.agnes@example.net\"}"
                         },
                         "description": "",
                         "auth": {
@@ -134,7 +134,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"pagac.obie@example.org\"}"
+                            "raw": "{\"email\":\"telly.stoltenberg@example.org\"}"
                         },
                         "description": "",
                         "auth": {
@@ -165,7 +165,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"eloy.wolff@example.org\",\"token\":\"assumenda\"}"
+                            "raw": "{\"email\":\"skunze@example.com\",\"token\":\"eum\"}"
                         },
                         "description": "",
                         "auth": {
@@ -265,7 +265,7 @@
                                 {
                                     "id": "challenge_id",
                                     "key": "challenge_id",
-                                    "value": "10",
+                                    "value": "17",
                                     "description": "The ID of the challenge."
                                 }
                             ]
@@ -301,7 +301,7 @@
                                 }
                             ],
                             "code": 404,
-                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"Challenge with id  10 not found\"}]}",
+                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"Challenge with id  17 not found\"}]}",
                             "name": ""
                         }
                     ]
@@ -394,7 +394,7 @@
                                 {
                                     "id": "faqCatalog_id",
                                     "key": "faqCatalog_id",
-                                    "value": "5",
+                                    "value": "3",
                                     "description": "The ID of the faqCatalog."
                                 }
                             ]
@@ -430,7 +430,7 @@
                                 }
                             ],
                             "code": 404,
-                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"FaqCatalog with id  5 not found\"}]}",
+                            "body": "{\"errors\":[{\"status\":404,\"title\":\"Record not found!\",\"detail\":\"FaqCatalog with id  3 not found\"}]}",
                             "name": ""
                         }
                     ]
@@ -508,7 +508,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"challenge_id\":\"numquam\"}"
+                            "raw": "{\"challenge_id\":\"voluptatem\"}"
                         },
                         "description": ""
                     },
@@ -536,7 +536,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"challenge_user_id\":\"quod\"}"
+                            "raw": "{\"challenge_user_id\":\"veniam\"}"
                         },
                         "description": ""
                     },
@@ -608,7 +608,7 @@
                                 {
                                     "id": "partner_id",
                                     "key": "partner_id",
-                                    "value": "18",
+                                    "value": "12",
                                     "description": "The ID of the partner."
                                 }
                             ]
@@ -809,7 +809,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"shares\":40}"
+                            "raw": "{\"shares\":45}"
                         },
                         "description": ""
                     },
@@ -941,7 +941,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"hkpelnrlmwqstynvbeddflne\",\"last_name\":\"ldt\",\"email\":\"nickolas93@example.com\",\"phone\":\"rv\",\"address\":\"rhmuezfuslvzaqwgafmnpcr\"}"
+                            "raw": "{\"first_name\":\"cs\",\"last_name\":\"ktycnqcevyjv\",\"email\":\"elinore.kshlerin@example.com\",\"phone\":\"ikthuucsxcfqvkguqskqfs\",\"address\":\"iy\"}"
                         },
                         "description": ""
                     },
@@ -1020,7 +1020,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"partner_id\":8,\"minimum_steps\":42,\"current_steps_in_beginning\":34}"
+                            "raw": "{\"partner_id\":10,\"minimum_steps\":64,\"current_steps_in_beginning\":7}"
                         },
                         "description": ""
                     },
@@ -1048,7 +1048,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"challenge_id\":17,\"current_latitude\":754.526,\"current_longitude\":13707127.3354,\"current_steps_in_end\":40}"
+                            "raw": "{\"challenge_id\":5,\"current_latitude\":27263524.03167104,\"current_longitude\":256402.39,\"current_steps_in_end\":77}"
                         },
                         "description": ""
                     },
@@ -1066,7 +1066,7 @@
                                 {
                                     "id": "atOurPartner_id",
                                     "key": "atOurPartner_id",
-                                    "value": "1",
+                                    "value": "11",
                                     "description": "The ID of the atOurPartner."
                                 }
                             ]
@@ -1109,7 +1109,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"challenge_id\":\"eveniet\"}"
+                            "raw": "{\"challenge_id\":\"quas\"}"
                         },
                         "description": ""
                     },
@@ -1165,6 +1165,85 @@
                             "name": ""
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "Withdrawal Requests",
+            "description": "\nAPI pour les demandes de retrait",
+            "item": [
+                {
+                    "name": "R\u00e9cup\u00e9rer les demandes de retrait de l'utilisateur",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/withdrawal-requests",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/withdrawal-requests"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/problem+json"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"errors\":[{\"status\":401,\"title\":\"Unauthenticated!\",\"detail\":\"Unauthenticated.\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Cr\u00e9er une demande de retrait",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/withdrawal-requests",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/withdrawal-requests"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"miles\":754}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
                 }
             ]
         }

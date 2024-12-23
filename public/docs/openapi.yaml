@@ -26,12 +26,12 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: simonis.cierra@example.net
+                  example: noah99@example.com
                   nullable: false
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: '<+#~%eD3U@7l_'
+                  example: 'vR<#vk4Auz21%TS>?<:S'
                   nullable: false
               required:
                 - email
@@ -56,37 +56,37 @@ paths:
                 first_name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: axyzwaheulott
+                  example: ptgskqpvwg
                   nullable: false
                 last_name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: dfylhjekabceybbfeheq
+                  example: acqaxuvxevwfsxo
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: abelardo.zulauf@example.com
+                  example: mosciski.kyleigh@example.org
                   nullable: false
                 phone:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: vuzeovjxgaijravb
+                  example: svxwbksnemgdig
                   nullable: true
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: zf|8XjL\(LJ5(|O
+                  example: R`$V>-JG$
                   nullable: false
                 password_confirmation:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: unde
+                  example: est
                   nullable: false
                 address:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: cglzcsjqcyvv
+                  example: lpxbcmxyiicnlpjlaiiedenzz
                   nullable: true
                 location:
                   type: object
@@ -97,7 +97,7 @@ paths:
                 referal_code:
                   type: string
                   description: ''
-                  example: atque
+                  example: suscipit
                   nullable: true
               required:
                 - first_name
@@ -125,7 +125,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: taya.mills@example.org
+                  example: cremin.agnes@example.net
                   nullable: false
               required:
                 - email
@@ -149,7 +149,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: pagac.obie@example.org
+                  example: telly.stoltenberg@example.org
                   nullable: false
               required:
                 - email
@@ -173,12 +173,12 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: eloy.wolff@example.org
+                  example: skunze@example.com
                   nullable: false
                 token:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: eum
                   nullable: false
               required:
                 - email
@@ -233,7 +233,7 @@ paths:
                     -
                       status: 404
                       title: 'Record not found!'
-                      detail: 'Challenge with id  10 not found'
+                      detail: 'Challenge with id  17 not found'
                 properties:
                   errors:
                     type: array
@@ -241,7 +241,7 @@ paths:
                       -
                         status: 404
                         title: 'Record not found!'
-                        detail: 'Challenge with id  10 not found'
+                        detail: 'Challenge with id  17 not found'
                     items:
                       type: object
                       properties:
@@ -253,7 +253,7 @@ paths:
                           example: 'Record not found!'
                         detail:
                           type: string
-                          example: 'Challenge with id  10 not found'
+                          example: 'Challenge with id  17 not found'
       tags:
         - Challenge
     parameters:
@@ -261,7 +261,7 @@ paths:
         in: path
         name: challenge_id
         description: 'The ID of the challenge.'
-        example: 10
+        example: 17
         required: true
         schema:
           type: integer
@@ -313,7 +313,7 @@ paths:
                     -
                       status: 404
                       title: 'Record not found!'
-                      detail: 'FaqCatalog with id  5 not found'
+                      detail: 'FaqCatalog with id  3 not found'
                 properties:
                   errors:
                     type: array
@@ -321,7 +321,7 @@ paths:
                       -
                         status: 404
                         title: 'Record not found!'
-                        detail: 'FaqCatalog with id  5 not found'
+                        detail: 'FaqCatalog with id  3 not found'
                     items:
                       type: object
                       properties:
@@ -333,7 +333,7 @@ paths:
                           example: 'Record not found!'
                         detail:
                           type: string
-                          example: 'FaqCatalog with id  5 not found'
+                          example: 'FaqCatalog with id  3 not found'
       tags:
         - 'FAQ Catalog'
     parameters:
@@ -341,7 +341,7 @@ paths:
         in: path
         name: faqCatalog_id
         description: 'The ID of the faqCatalog.'
-        example: 5
+        example: 3
         required: true
         schema:
           type: integer
@@ -404,7 +404,7 @@ paths:
                 challenge_id:
                   type: string
                   description: 'The <code>id</code> of an existing record in the challenges table.'
-                  example: numquam
+                  example: voluptatem
                   nullable: false
               required:
                 - challenge_id
@@ -427,7 +427,7 @@ paths:
                 challenge_user_id:
                   type: string
                   description: 'The <code>id</code> of an existing record in the challenge_users table.'
-                  example: quod
+                  example: veniam
                   nullable: false
               required:
                 - challenge_user_id
@@ -468,7 +468,7 @@ paths:
         in: path
         name: partner_id
         description: 'The ID of the partner.'
-        example: 18
+        example: 12
         required: true
         schema:
           type: integer
@@ -714,7 +714,7 @@ paths:
                 shares:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 40
+                  example: 45
                   nullable: false
               required:
                 - shares
@@ -819,27 +819,27 @@ paths:
                 first_name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: hkpelnrlmwqstynvbeddflne
+                  example: cs
                   nullable: false
                 last_name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: ldt
+                  example: ktycnqcevyjv
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: nickolas93@example.com
+                  example: elinore.kshlerin@example.com
                   nullable: false
                 phone:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: rv
+                  example: ikthuucsxcfqvkguqskqfs
                   nullable: true
                 address:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: rhmuezfuslvzaqwgafmnpcr
+                  example: iy
                   nullable: true
                 location:
                   type: object
@@ -920,17 +920,17 @@ paths:
                 partner_id:
                   type: integer
                   description: ''
-                  example: 8
+                  example: 10
                   nullable: false
                 minimum_steps:
                   type: integer
                   description: 'Must be at least 0.'
-                  example: 42
+                  example: 64
                   nullable: false
                 current_steps_in_beginning:
                   type: integer
                   description: 'Must be at least 0.'
-                  example: 34
+                  example: 7
                   nullable: false
               required:
                 - partner_id
@@ -955,22 +955,22 @@ paths:
                 challenge_id:
                   type: integer
                   description: ''
-                  example: 17
+                  example: 5
                   nullable: false
                 current_latitude:
                   type: number
                   description: ''
-                  example: 754.526
+                  example: 27263524.031671
                   nullable: false
                 current_longitude:
                   type: number
                   description: ''
-                  example: 13707127.3354
+                  example: 256402.39
                   nullable: false
                 current_steps_in_end:
                   type: integer
                   description: 'Must be at least 0.'
-                  example: 40
+                  example: 77
                   nullable: false
               required:
                 - challenge_id
@@ -991,7 +991,7 @@ paths:
         in: path
         name: atOurPartner_id
         description: 'The ID of the atOurPartner.'
-        example: 1
+        example: 11
         required: true
         schema:
           type: integer
@@ -1014,7 +1014,7 @@ paths:
                 challenge_id:
                   type: string
                   description: 'The <code>id</code> of an existing record in the at_our_partners table.'
-                  example: eveniet
+                  example: quas
                   nullable: false
               required:
                 - challenge_id
@@ -1059,6 +1059,69 @@ paths:
                           example: Unauthenticated.
       tags:
         - Wallet
+  /api/withdrawal-requests:
+    get:
+      summary: "Récupérer les demandes de retrait de l'utilisateur"
+      operationId: rcuprerLesDemandesDeRetraitDeLutilisateur
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    -
+                      status: 401
+                      title: Unauthenticated!
+                      detail: Unauthenticated.
+                properties:
+                  errors:
+                    type: array
+                    example:
+                      -
+                        status: 401
+                        title: Unauthenticated!
+                        detail: Unauthenticated.
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: integer
+                          example: 401
+                        title:
+                          type: string
+                          example: Unauthenticated!
+                        detail:
+                          type: string
+                          example: Unauthenticated.
+      tags:
+        - 'Withdrawal Requests'
+    post:
+      summary: 'Créer une demande de retrait'
+      operationId: crerUneDemandeDeRetrait
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Withdrawal Requests'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                miles:
+                  type: number
+                  description: 'Must be at least 2000.'
+                  example: 754
+                  nullable: false
+              required:
+                - miles
 tags:
   -
     name: Auth
@@ -1087,6 +1150,9 @@ tags:
   -
     name: Wallet
     description: 'This is the Wallet controller'
+  -
+    name: 'Withdrawal Requests'
+    description: "\nAPI pour les demandes de retrait"
 components:
   securitySchemes:
     default:

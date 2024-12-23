@@ -171,4 +171,13 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasMany(DailyShare::class);
     }
+
+    /**
+     * Get the withdrawal requests that belong to the user.
+     * @return HasMany
+     */
+    public function withdrawalRequests() : HasMany
+    {
+        return $this->hasMany(WithdrawalRequest::class);
+    }
 }

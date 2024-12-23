@@ -39,7 +39,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer vDP186ek453VEbcfZh6dgaa'
+      - 'Bearer Pf3v1aZV6hag6e58cDdE4bk'
     controller: null
     method: null
     route: null
@@ -70,7 +70,7 @@ endpoints:
         name: partner_id
         description: ''
         required: true
-        example: 8
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -80,7 +80,7 @@ endpoints:
         name: minimum_steps
         description: 'Must be at least 0.'
         required: true
-        example: 42
+        example: 64
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -90,23 +90,23 @@ endpoints:
         name: current_steps_in_beginning
         description: 'Must be at least 0.'
         required: true
-        example: 34
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      partner_id: 8
-      minimum_steps: 42
-      current_steps_in_beginning: 34
+      partner_id: 10
+      minimum_steps: 64
+      current_steps_in_beginning: 7
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer V1dfv8a3b5kEahcDPg46e6Z'
+      - 'Bearer cagbZ6eEvf1dD53V6kPa8h4'
     controller: null
     method: null
     route: null
@@ -137,7 +137,7 @@ endpoints:
         name: challenge_id
         description: ''
         required: true
-        example: 17
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -147,7 +147,7 @@ endpoints:
         name: current_latitude
         description: ''
         required: true
-        example: 754.526
+        example: 27263524.031671
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -157,7 +157,7 @@ endpoints:
         name: current_longitude
         description: ''
         required: true
-        example: 13707127.3354
+        example: 256402.39
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -167,24 +167,24 @@ endpoints:
         name: current_steps_in_end
         description: 'Must be at least 0.'
         required: true
-        example: 40
+        example: 77
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      challenge_id: 17
-      current_latitude: 754.526
-      current_longitude: 13707127.3354
-      current_steps_in_end: 40
+      challenge_id: 5
+      current_latitude: 27263524.031671
+      current_longitude: 256402.39
+      current_steps_in_end: 77
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer Z8DEvVagac45k6bhf3eP61d'
+      - 'Bearer g3154kEaP8hv6fbdaeVcZ6D'
     controller: null
     method: null
     route: null
@@ -211,14 +211,14 @@ endpoints:
         name: atOurPartner_id
         description: 'The ID of the atOurPartner.'
         required: true
-        example: 1
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      atOurPartner_id: 1
+      atOurPartner_id: 11
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -229,7 +229,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer vb6ah6gkE8DcZ1ad5feP43V'
+      - 'Bearer 4a1fdvh5b3ZVc686EaDPgek'
     controller: null
     method: null
     route: null
@@ -260,21 +260,21 @@ endpoints:
         name: challenge_id
         description: 'The <code>id</code> of an existing record in the at_our_partners table.'
         required: true
-        example: eveniet
+        example: quas
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      challenge_id: eveniet
+      challenge_id: quas
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer a6aZ1DvfE4kV5dbPh8ce3g6'
+      - 'Bearer g6D1hcPv8fdZE453k6aebaV'
     controller: null
     method: null
     route: null
